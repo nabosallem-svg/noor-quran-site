@@ -1,0 +1,63 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta name="color-scheme" content="light"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>الاشتراكات والدفع — نور وإتقان</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>:root{color-scheme:light}body{font-family:'Plus Jakarta Sans',Tahoma;background:#fbf9f5 !important;color:#1b1c1a;margin:0}.pak.sel{border-color:#C5A059!important;box-shadow:0 8px 30px rgba(197,160,89,.2)}</style></head>
+<body>
+<nav class="bg-[#fbf9f5]/95 backdrop-blur border-b border-[#e7dfce] sticky top-0 z-40"><div class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
+<a href="index.html" class="font-bold text-[#132d27] text-[18px]">نور وإتقان</a>
+<div class="hidden md:flex gap-5 text-[14px] text-gray-600">
+<a href="index.html">الرئيسية</a><a href="booking.html">المواعيد</a><a href="level-test.html">اختبار المستوى</a><a href="student.html">متابعة الطالب</a><a href="library.html">المكتبة والمدونة</a><a href="payment.html" class="font-bold text-[#132d27]">الاشتراكات</a>
+</div>
+<div class="flex items-center gap-2">
+<button onclick="history.back()" class="px-4 py-1.5 rounded-full bg-white border border-[#C5A059] text-[#132d27] text-[13px] font-bold hover:bg-[#132d27] hover:text-white transition">→ رجوع</button>
+<a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] text-white text-[14px] font-bold">احجز حصة تجريبية مجانية</a>
+<button id="mnav" class="md:hidden px-3 py-2 rounded-lg bg-[#efeeea] font-bold">القائمة</button>
+</div></div>
+<div id="mmenu" class="hidden md:hidden border-t border-[#e7dfce] px-4 py-2 flex flex-col gap-2 text-[14px] bg-[#fbf9f5]">
+<a href="index.html">الرئيسية</a><a href="booking.html">المواعيد والحجز</a><a href="level-test.html">اختبار تحديد المستوى</a><a href="student.html">دفتر متابعة الطالب</a><a href="library.html">المكتبة الصوتية والمدونة</a><a href="payment.html" class="font-bold">الاشتراكات والدفع</a>
+</div></nav>
+<div class="max-w-[900px] mx-auto px-4 py-10">
+<h1 class="text-[28px] font-bold text-[#132d27]">الاشتراكات والدفع</h1>
+<p class="text-[14px] text-gray-500">اختر الباقة ثم حول المبلغ وأرفق صورة التحويل. يتم التفعيل بعد مراجعة الشيخ.</p>
+<p class="text-[12px] mt-1 bg-[#fff8e1] border border-[#C5A059] rounded-lg p-2">ملاحظة للمراجعة: الأسعار والأرقام التالية تجريبية للعرض فقط ويتم تعديلها قبل النشر النهائي.</p>
+<div id="paks" class="grid md:grid-cols-3 gap-3 mt-5"></div>
+<div class="bg-white rounded-2xl border p-5 mt-4">
+<h3 class="font-bold text-[#132d27]">بيانات الاشتراك</h3>
+<div class="grid md:grid-cols-2 gap-2 mt-2">
+<input id="pName" placeholder="اسم الطالب" class="p-3 rounded-lg border bg-[#fbf9f5]"/>
+<input id="pPhone" placeholder="رقم واتساب (مثال 01xxxxxxxxx)" dir="ltr" class="p-3 rounded-lg border bg-[#fbf9f5] text-left"/>
+<select id="pMethod" class="p-3 rounded-lg border bg-[#fbf9f5]"><option>فودافون كاش</option><option>انستاباي InstaPay</option><option>تحويل بنكي</option></select>
+<label class="p-3 rounded-lg border bg-[#fbf9f5] text-[14px] cursor-pointer">إرفاق صورة التحويل<input id="pShot" type="file" accept="image/*" class="hidden"/></label>
+</div>
+<p id="shotName" class="text-[12px] text-green-700 mt-1"></p>
+<div class="p-3 rounded-xl bg-[#f5f3ef] text-[14px] mt-3">رقم التحويل المعتمد: <b dir="ltr" id="payNum">01000000000</b> <button id="copy" class="text-[#30694a] font-bold">نسخ</button></div>
+<button id="send" class="w-full mt-3 py-3 rounded-xl bg-[#30694a] text-white font-bold">تأكيد الدفع وإرسال واتساب</button>
+<p id="pm" class="text-[13px] text-center mt-2"></p>
+</div>
+<div class="bg-[#132d27] text-white rounded-2xl p-4 mt-4 text-[13px]">
+<b>لوحة الشيخ: تعديل رقم التحويل</b>
+<div class="flex gap-2 mt-2"><input id="aPay" dir="ltr" class="flex-1 p-2 rounded-lg text-gray-800 text-left" placeholder="01xxxxxxxxx"/><button id="aSave" class="px-4 py-2 rounded-lg bg-[#C5A059] text-[#132d27] font-bold">حفظ</button></div>
+<h4 class="mt-3 font-bold">المدفوعات المرسلة (<span id="pc">0</span>)</h4><div id="plist" class="flex flex-col gap-1 mt-1 max-h-40 overflow-auto"></div>
+</div></div>
+<script>
+const PAKS=[{n:'8 حصص / 30 دقيقة',p:'400 جنيه',d:'مناسبة للأطفال والمبتدئين'},{n:'12 حصة / 60 دقيقة',p:'600 جنيه',d:'الأكثر اشتراكا — حفظ ومراجعة',hot:1},{n:'باقة الأسرة',p:'خصم 10%',d:'لأخوين أو أكثر'}];
+let sel=1;const box=document.getElementById('paks');
+function draw(){box.innerHTML='';PAKS.forEach((x,i)=>{const d=document.createElement('div');d.className='pak bg-white rounded-2xl p-5 border-2 text-center cursor-pointer '+(i===sel?'sel':'border-gray-100');if(x.hot)d.style.borderColor='#C5A059';d.innerHTML='<b>'+x.n+'</b><div class="text-[24px] font-bold text-[#132d27] my-1">'+x.p+'</div><p class="text-[12px] text-gray-500">'+x.d+'</p>';d.onclick=()=>{sel=i;draw()};box.appendChild(d)})}draw();
+const NK='itqan_paynum',PK='itqan_pays';
+document.getElementById('payNum').textContent=localStorage.getItem(NK)||'01000000000';
+document.getElementById('aPay').value=localStorage.getItem(NK)||'';
+document.getElementById('aSave').onclick=()=>{const v=document.getElementById('aPay').value.trim();if(v.length<8){alert('أدخل رقما صحيحا');return}localStorage.setItem(NK,v);document.getElementById('payNum').textContent=v;alert('تم الحفظ')};
+document.getElementById('copy').onclick=()=>{navigator.clipboard.writeText(document.getElementById('payNum').textContent)};
+document.getElementById('pShot').onchange=e=>{if(e.target.files[0])document.getElementById('shotName').textContent='تم إرفاق: '+e.target.files[0].name};
+function plist(){const a=JSON.parse(localStorage.getItem(PK)||'[]');document.getElementById('pc').textContent=a.length;document.getElementById('plist').innerHTML=a.map(x=>'<div class="bg-white/10 rounded-lg p-2">'+x.name+' — '+x.pak+' — <span dir="ltr">'+x.phone+'</span> — '+x.method+'</div>').join('')||'<span class="text-gray-400">لا يوجد بعد</span>'}plist();
+document.getElementById('send').onclick=()=>{
+const n=document.getElementById('pName').value.trim(),ph=document.getElementById('pPhone').value.trim();
+if(n.length<2||ph.replace(/\D/g,'').length<8){document.getElementById('pm').textContent='يرجى إدخال الاسم ورقم واتساب صحيح';document.getElementById('pm').style.color='red';return}
+const a=JSON.parse(localStorage.getItem(PK)||'[]');a.push({name:n,phone:ph,pak:PAKS[sel].n,method:document.getElementById('pMethod').value,at:new Date().toISOString()});localStorage.setItem(PK,JSON.stringify(a));plist();
+const wa=(localStorage.getItem('itqan_wa')||'201000000000').replace(/\D/g,'');
+const t=encodeURIComponent('اشتراك جديد — نور وإتقان\nالاسم: '+n+'\nالهاتف: '+ph+'\nالباقة: '+PAKS[sel].n+'\nالطريقة: '+document.getElementById('pMethod').value);
+window.open('https://wa.me/'+wa+'?text='+t,'_blank');
+document.getElementById('pm').textContent='تم التسجيل. أكمل الإرسال عبر واتساب مع صورة التحويل.';document.getElementById('pm').style.color='green'};
+</script>
+<script>var mn=document.getElementById('mnav');if(mn)mn.onclick=()=>document.getElementById('mmenu').classList.toggle('hidden');</script></body></html>

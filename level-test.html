@@ -1,0 +1,54 @@
+<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta name="color-scheme" content="light"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>اختبار تحديد المستوى — نور وإتقان</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>:root{color-scheme:light}body{font-family:'Plus Jakarta Sans',Tahoma;background:#fbf9f5 !important;color:#1b1c1a;margin:0}
+<style>body{font-family:'Plus Jakarta Sans',Tahoma;background:#fbf9f5;margin:0}.opt{border:1px solid #e5e0d5;background:#fff;border-radius:12px;padding:12px;cursor:pointer}.opt.sel{background:#132d27;color:#fff;border-color:#132d27}</style></head>
+<body>
+<nav class="bg-[#fbf9f5]/95 backdrop-blur border-b border-[#e7dfce] sticky top-0 z-40"><div class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
+<a href="index.html" class="font-bold text-[#132d27] text-[18px]">نور وإتقان</a>
+<div class="hidden md:flex gap-5 text-[14px] text-gray-600">
+<a href="index.html">الرئيسية</a><a href="booking.html">المواعيد</a><a href="level-test.html" class="font-bold text-[#132d27]">اختبار المستوى</a><a href="student.html">متابعة الطالب</a><a href="library.html">المكتبة والمدونة</a><a href="payment.html">الاشتراكات</a>
+</div>
+<div class="flex items-center gap-2">
+<button onclick="history.back()" class="px-4 py-1.5 rounded-full bg-white border border-[#C5A059] text-[#132d27] text-[13px] font-bold hover:bg-[#132d27] hover:text-white transition">→ رجوع</button>
+<a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] text-white text-[14px] font-bold">احجز حصة تجريبية مجانية</a>
+<button id="mnav" class="md:hidden px-3 py-2 rounded-lg bg-[#efeeea] font-bold">القائمة</button>
+</div></div>
+<div id="mmenu" class="hidden md:hidden border-t border-[#e7dfce] px-4 py-2 flex flex-col gap-2 text-[14px] bg-[#fbf9f5]">
+<a href="index.html">الرئيسية</a><a href="booking.html">المواعيد والحجز</a><a href="level-test.html" class="font-bold">اختبار تحديد المستوى</a><a href="student.html">دفتر متابعة الطالب</a><a href="library.html">المكتبة الصوتية والمدونة</a><a href="payment.html">الاشتراكات والدفع</a>
+</div></nav>
+<div class="max-w-[720px] mx-auto px-4 py-10">
+<h1 class="text-[28px] font-bold text-[#132d27]">اختبار تحديد المستوى</h1>
+<p class="text-gray-500 text-[14px]">أجب عن الأسئلة التالية وسيتم ترشيح المستوى والباقة المناسبة لك. تستغرق الإجابة دقيقتين تقريبا.</p>
+<div id="quiz" class="flex flex-col gap-4 mt-6"></div>
+<div class="bg-white rounded-2xl p-4 border mt-4">
+<label class="text-[13px] font-bold">تسجيل صوتي لقراءة سورة الفاتحة (اختياري — يرسل للشيخ للتقييم)</label>
+<div class="flex gap-2 mt-2"><button id="rec" class="px-4 py-2 rounded-lg bg-[#132d27] text-white text-[14px] font-bold">بدء التسجيل</button><span id="recSt" class="text-[13px] text-gray-500 self-center">—</span></div>
+<audio id="aud" controls class="w-full mt-2 hidden"></audio></div>
+<button id="res" class="w-full mt-4 py-3 rounded-xl bg-[#30694a] text-white font-bold">عرض النتيجة وترشيح الباقة</button>
+<div id="out" class="hidden bg-[#132d27] text-white rounded-2xl p-5 mt-4"></div>
+</div>
+<script>
+const QS=[{q:'عمر الطالب؟',o:['أقل من 7 سنوات','7 - 12 سنة','13 - 18 سنة','أكبر من 18 سنة']},{q:'مقدار الحفظ الحالي؟',o:['لا يوجد حفظ','جزء أو أقل','من جزء إلى 5 أجزاء','أكثر من 5 أجزاء']},{q:'مستوى التجويد؟',o:['لا أعرف التجويد','أعرف الأساسيات','مستوى متوسط','مستوى متقدم / أرغب في إجازة']},{q:'آخر سورة متقنة؟ اكتب اسمها',input:1},{q:'الهدف من الاشتراك؟',o:['تأسيس طفل','حفظ جديد','مراجعة وتثبيت','الحصول على إجازة بالسند']}];
+let ans={};const box=document.getElementById('quiz');
+QS.forEach((s,i)=>{const d=document.createElement('div');d.className='bg-white rounded-2xl p-4 border';d.innerHTML='<b class="text-[15px]">'+(i+1)+'. '+s.q+'</b><div class="flex flex-wrap gap-2 mt-2"></div>';const w=d.querySelector('div');
+if(s.input){w.innerHTML='<input id="in4" class="w-full p-2 rounded-lg border bg-[#fbf9f5]" placeholder="مثال: سورة الملك"/>'}else{s.o.forEach(o=>{const b=document.createElement('div');b.className='opt text-[14px]';b.textContent=o;b.onclick=()=>{w.querySelectorAll('.opt').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');ans[i]=o};w.appendChild(b)})}
+box.appendChild(d)});
+document.getElementById('res').onclick=()=>{
+const juz=ans[1]||'',taj=ans[2]||'',goal=ans[4]||'';
+let lvl='مبتدئ — مسار التأسيس',pak='باقة 8 حصص / 30 دقيقة';
+if(juz.includes('أكثر')||taj.includes('متقدم')||goal.includes('إجازة')){lvl='متقدم — مسار الإجازة';pak='باقة 12 حصة / 60 دقيقة — مسار الإجازة'}
+else if(juz.includes('5')||taj.includes('متوسط')){lvl='متوسط — حفظ ومراجعة';pak='باقة 12 حصة'}
+localStorage.setItem('itqan_level',JSON.stringify({ans,lvl,pak,at:Date.now()}));
+const o=document.getElementById('out');o.classList.remove('hidden');
+o.innerHTML='<b>المستوى المقترح: '+lvl+'</b><p class="text-[14px] text-[#b0cdc4] mt-1">الباقة المقترحة: '+pak+'</p><div class="flex gap-2 mt-3"><a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] font-bold text-[14px]">الانتقال للحجز</a><a href="payment.html" class="px-4 py-2 rounded-lg bg-white text-[#132d27] font-bold text-[14px]">عرض الأسعار</a></div>';
+o.scrollIntoView({behavior:'smooth'})};
+let mr,chunks=[];const rec=document.getElementById('rec');
+rec.onclick=async()=>{try{
+if(mr&&mr.state==='recording'){mr.stop();rec.textContent='بدء التسجيل';return}
+const st=await navigator.mediaDevices.getUserMedia({audio:true});mr=new MediaRecorder(st);chunks=[];
+mr.ondataavailable=e=>chunks.push(e.data);mr.onstop=()=>{const b=new Blob(chunks,{type:'audio/webm'});const a=document.getElementById('aud');a.src=URL.createObjectURL(b);a.classList.remove('hidden');document.getElementById('recSt').textContent='تم التسجيل بنجاح'};mr.start();rec.textContent='إيقاف التسجيل';document.getElementById('recSt').textContent='جار التسجيل...';
+}catch(e){alert('تعذر الوصول إلى الميكروفون. يمكنك إكمال الاختبار بدون تسجيل')}};
+</script>
+<script>var mn=document.getElementById('mnav');if(mn)mn.onclick=()=>document.getElementById('mmenu').classList.toggle('hidden');</script></body></html>

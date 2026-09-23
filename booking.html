@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta name="color-scheme" content="light"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>حجز المواعيد - نور وإتقان</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+colors: { primary: '#001813', 'primary-container': '#132d27', secondary: '#30694a', 'secondary-container': '#b3f0c8', surface: '#fbf9f5', 'surface-container-low': '#f5f3ef', 'surface-container': '#efeeea', 'surface-container-high': '#eae8e4', 'surface-container-lowest': '#ffffff', gold: '#C5A059' },
+}}} 
+</script>
+<style>
+:root{color-scheme:light}
+body{font-family:'Plus Jakarta Sans',Tahoma,sans-serif;background:#fbf9f5 !important;color:#1b1c1a;margin:0}
+h1,h2,h3{font-family:'Noto Serif',serif}
+.slot-available{background:#F3EDE2;border:1px solid rgba(197,160,89,.35);cursor:pointer}
+.slot-available:hover{border-color:#C5A059}
+.slot-selected{background:#132D27!important;color:#fff!important;border-color:#132D27!important}
+.slot-booked{background:#efeeea;color:#999;text-decoration:line-through;cursor:not-allowed}
+.slot-closed{background:#ffdad6;color:#93000a;cursor:not-allowed}
+.day-card{cursor:pointer;min-width:92px}
+.day-active{background:#132D27!important;color:#fff!important}
+.day-active .hijri{color:#C5A059!important}
+</style>
+</head>
+<body>
+<nav class="bg-[#fbf9f5]/95 backdrop-blur border-b border-[#e7dfce] sticky top-0 z-40"><div class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
+<a href="index.html" class="font-bold text-[#132d27] text-[18px]">نور وإتقان</a>
+<div class="hidden md:flex gap-5 text-[14px] text-gray-600">
+<a href="index.html">الرئيسية</a><a href="booking.html" class="font-bold text-[#132d27]">المواعيد</a><a href="level-test.html">اختبار المستوى</a><a href="student.html">متابعة الطالب</a><a href="library.html">المكتبة والمدونة</a><a href="payment.html">الاشتراكات</a>
+</div>
+<div class="flex items-center gap-2">
+<button onclick="history.back()" class="flex items-center gap-1 px-4 py-1.5 rounded-full bg-white border border-[#C5A059] text-[#132d27] text-[13px] font-bold hover:bg-[#132d27] hover:text-white transition">→ رجوع</button>
+<a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] text-white text-[14px] font-bold">احجز حصة تجريبية مجانية</a>
+<button id="mnav" class="md:hidden px-3 py-2 rounded-lg bg-[#efeeea] font-bold">القائمة</button>
+</div></div>
+<div id="mmenu" class="hidden md:hidden border-t border-[#e7dfce] px-4 py-2 flex flex-col gap-2 text-[14px] bg-[#fbf9f5]">
+<a href="index.html">الرئيسية</a><a href="booking.html" class="font-bold">المواعيد والحجز</a><a href="level-test.html">اختبار تحديد المستوى</a><a href="student.html">دفتر متابعة الطالب</a><a href="library.html">المكتبة الصوتية والمدونة</a><a href="payment.html">الاشتراكات والدفع</a>
+</div></nav>
+<!-- Banner -->
+<section class="relative w-full overflow-hidden bg-[#f5f3ef] py-10">
+<div class="max-w-[1200px] mx-auto px-4">
+<div class="flex items-center gap-2 bg-white px-4 py-1 rounded-full shadow-sm text-[#30694a] w-fit mb-4">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-[13px] font-semibold">الحجز المباشر — الحصة التجريبية الأولى مجاناً</span>
+</div>
+<h1 class="text-[32px] lg:text-[48px] font-bold text-[#132d27] leading-tight">احجز موعدك مع الشيخ مباشرة</h1>
+<p class="text-[17px] text-gray-600 max-w-3xl mt-2">اختر اليوم والوقت المناسب ثم أكد الحجز. المواعيد محفوظة فعليا على الجهاز، ويمكن للشيخ تعديلها من لوحة التعديل بالأسفل.</p>
+<div class="flex flex-wrap gap-2 mt-4 text-[13px]">
+<span class="bg-white px-3 py-1 rounded-full shadow-sm">توقيت القاهرة / مكة المكرمة</span>
+<span class="bg-white px-3 py-1 rounded-full shadow-sm">تأكيد فوري عبر واتساب</span>
+<span class="bg-white px-3 py-1 rounded-full shadow-sm">جلسة التقييم الأولى مجانية</span>
+</div>
+</div>
+</section>
+
+<main class="max-w-[1200px] mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+
+<!-- Calendar + Slots -->
+<div class="lg:col-span-7 bg-white rounded-2xl p-5 shadow-sm border border-[#e7dfce]">
+<div class="flex items-center justify-between mb-4">
+<button id="prevWeek" class="w-10 h-10 rounded-full bg-[#f5f3ef] hover:bg-[#132d27] hover:text-white transition">‹</button>
+<h2 id="weekLabel" class="font-bold text-[#132d27] text-[18px]">هذا الأسبوع</h2>
+<button id="nextWeek" class="w-10 h-10 rounded-full bg-[#f5f3ef] hover:bg-[#132d27] hover:text-white transition">›</button>
+</div>
+<div id="daysRow" class="flex gap-2 overflow-x-auto pb-2"></div>
+
+<div class="mt-5 p-3 rounded-xl bg-[#f5f3ef] text-[13px] text-gray-600 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-[#30694a]">schedule</span>
+<span id="selectedDayLabel">اختار اليوم لعرض الأوقات</span>
+</div>
+
+<div id="slotsGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4"></div>
+
+<div class="flex gap-4 mt-4 text-[12px] text-gray-500">
+<span>اللون الفاتح: متاح</span>
+<span>اللون الغامق: اختيارك</span>
+<span>يتوسطه خط: محجوز</span>
+</div>
+</div>
+
+<!-- Booking form -->
+<div class="lg:col-span-5 bg-white rounded-2xl p-5 shadow-xl shadow-[#132d27]/5 border border-[rgba(197,160,89,.25)] sticky top-4">
+<h3 class="font-bold text-[#132d27] text-[20px] mb-1">تأكيد الحجز</h3>
+<p class="text-[13px] text-gray-500 mb-4">الموعد المختار: <b id="chosenSlotLabel" class="text-[#30694a]">لم يتم الاختيار بعد</b></p>
+
+<label class="text-[13px] font-semibold">الاسم بالكامل</label>
+<input id="fName" class="w-full mt-1 mb-3 p-3 rounded-lg bg-[#fbf9f5] border border-gray-200 outline-none focus:border-[#C5A059]" placeholder="مثال: أحمد محمد"/>
+
+<label class="text-[13px] font-semibold">رقم واتساب</label>
+<input id="fPhone" class="w-full mt-1 mb-3 p-3 rounded-lg bg-[#fbf9f5] border border-gray-200 outline-none focus:border-[#C5A059] text-left" dir="ltr" placeholder="01xxxxxxxxx"/>
+
+<label class="text-[13px] font-semibold">البرنامج</label>
+<select id="fProg" class="w-full mt-1 mb-3 p-3 rounded-lg bg-[#fbf9f5] border border-gray-200">
+<option>تحفيظ أطفال</option>
+<option>تحفيظ كبار</option>
+<option>أونلاين فردي</option>
+<option>مراجعة وتثبيت</option>
+<option>إجازة وسند</option>
+</select>
+
+<label class="text-[13px] font-semibold">ملاحظة (اختياري)</label>
+<textarea id="fNote" rows="2" class="w-full mt-1 mb-4 p-3 rounded-lg bg-[#fbf9f5] border border-gray-200" placeholder="حافظ كام جزء؟ سن الطفل؟"></textarea>
+
+<button id="confirmBtn" class="w-full py-3 rounded-xl bg-[#30694a] hover:bg-[#132d27] text-white font-bold transition flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">check_circle</span> تأكيد الحجز
+</button>
+<a id="waLink" target="_blank" class="hidden w-full mt-2 py-3 rounded-xl bg-[#132d27] text-white font-bold text-center block">إرسال التأكيد واتساب ↗</a>
+<p id="msg" class="text-[13px] mt-3 text-center"></p>
+
+<div class="mt-4 p-3 rounded-xl bg-[#E8F3EC] text-[12px] text-[#155133]">
+يتم حفظ الحجز فعليا على المتصفح، والموعد المحجوز يغلق تلقائيا حتى لا يتم حجزه مرة أخرى.
+</div>
+</div>
+</main>
+
+<!-- Admin / Sheikh edit -->
+<section class="max-w-[1200px] mx-auto px-4 pb-16">
+<div class="bg-[#132d27] text-white rounded-3xl p-6 shadow-2xl">
+<div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+<div>
+<h3 class="font-bold text-[20px]">لوحة الشيخ — تعديل المواعيد</h3>
+<p class="text-[13px] text-[#b0cdc4]">من هنا يتم تعديل الأوقات المتاحة. أي تعديل يحفظ تلقائيا ويظهر للطلاب فورا.</p>
+</div>
+<button id="adminToggle" class="px-4 py-2 rounded-lg bg-[#C5A059] text-[#132d27] font-bold text-[14px]">فتح التعديل</button>
+</div>
+
+<div id="adminPanel" class="hidden bg-white text-gray-800 rounded-2xl p-4">
+<div class="grid sm:grid-cols-4 gap-2 mb-3">
+<div class="sm:col-span-2">
+<label class="text-[12px] font-bold">رقم واتساب الشيخ (يستقبل الحجوزات)</label>
+<input id="sheikhWa" dir="ltr" class="w-full mt-1 p-2 rounded-lg border text-left" placeholder="2010xxxxxxxx"/></div>
+<div>
+<label class="text-[12px] font-bold">وقت جديد (لليوم المختار)</label>
+<input id="newTime" type="time" class="w-full mt-1 p-2 rounded-lg border"/>
+</div>
+<div class="flex items-end gap-2">
+<button id="addSlot" class="flex-1 py-2 rounded-lg bg-[#30694a] text-white font-bold">+ إضافة معاد</button>
+</div>
+</div>
+<p class="text-[12px] text-gray-500 mb-2">دوس على أي معاد تحت عشان: <b>تقفل / تفتح / تمسح</b> — ودوس <b>يوم كامل</b> عشان تقفل اليوم كله (أجازة).</p>
+<div id="adminSlots" class="flex flex-wrap gap-2"></div>
+<div class="flex flex-wrap gap-2 mt-4">
+<button id="closeDay" class="px-3 py-2 rounded-lg bg-[#ffdad6] text-[#93000a] font-bold text-[13px]">قفل اليوم المختار (أجازة)</button>
+<button id="openDay" class="px-3 py-2 rounded-lg bg-[#b3f0c8] text-[#002111] font-bold text-[13px]">فتح اليوم</button>
+<button id="resetAll" class="px-3 py-2 rounded-lg bg-gray-200 font-bold text-[13px]">رجع المواعيد الافتراضية</button>
+</div>
+<h4 class="font-bold mt-5 mb-2 text-[15px]">الحجوزات المستلمة (<span id="bookCount">0</span>)</h4>
+<div id="bookList" class="flex flex-col gap-2 max-h-64 overflow-auto"></div>
+</div>
+</div>
+</section>
+
+<script>
+const KEY='itqan_slots_v1', BK='itqan_books_v1', WAKEY='itqan_wa';
+const DEF_TIMES=['08:00','09:30','11:00','16:00','17:30','19:00','20:30','21:30'];
+let weekOffset=0, selectedDate=null, selectedTime=null, adminOpen=false;
+const daysRow=document.getElementById('daysRow'), slotsGrid=document.getElementById('slotsGrid');
+
+function fmtD(d){const y=d.getFullYear(),m=String(d.getMonth()+1).padStart(2,'0'),dd=String(d.getDate()).padStart(2,'0');return y+'-'+m+'-'+dd}
+function load(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return{}}}
+function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
+function loadB(){try{return JSON.parse(localStorage.getItem(BK))||[]}catch(e){return[]}}
+function saveB(b){localStorage.setItem(BK,JSON.stringify(b))}
+
+function ensureDay(dateStr,store){
+  if(!store[dateStr]){store[dateStr]=DEF_TIMES.map(t=>({t,st:'open'}));save(store)}
+  return store[dateStr]
+}
+function hijri(d){
+  try{return new Intl.DateTimeFormat('ar-SA-islamic',{day:'numeric',month:'long'}).format(d)}catch(e){return''}
+}
+function renderWeek(){
+  daysRow.innerHTML='';
+  const today=new Date(); today.setHours(0,0,0,0);
+  const start=new Date(today); start.setDate(start.getDate()+weekOffset*7);
+  const arDays=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+  document.getElementById('weekLabel').textContent = weekOffset===0?'هذا الأسبوع':('الأسبوع '+(weekOffset>0?'+'+weekOffset:weekOffset));
+  for(let i=0;i<7;i++){
+    const d=new Date(start); d.setDate(start.getDate()+i);
+    const ds=fmtD(d);
+    const store=load(); const day=store[ds];
+    const closed = day && day.length>0 && day.every(s=>s.st==='closed');
+    const el=document.createElement('div');
+    el.className='day-card bg-white border rounded-xl p-2 text-center shadow-sm'+(selectedDate===ds?' day-active':'');
+    if(closed) el.style.opacity='.5';
+    el.innerHTML=`<div class="text-[12px] font-bold">${arDays[d.getDay()]}</div>
+    <div class="text-[18px] font-bold">${d.getDate()}/${d.getMonth()+1}</div>
+    <div class="hijri text-[11px] text-gray-500">${hijri(d)}</div>
+    ${closed?'<div class="text-[10px] text-red-600 font-bold">أجازة</div>':''}`;
+    el.onclick=()=>{selectedDate=ds;selectedTime=null;renderWeek();renderSlots()};
+    daysRow.appendChild(el);
+  }
+  if(!selectedDate){selectedDate=fmtD(new Date(today));renderSlots()}
+}
+function renderSlots(){
+  const store=load();
+  const day=ensureDay(selectedDate,store);
+  const d=new Date(selectedDate+'T00:00:00');
+  document.getElementById('selectedDayLabel').textContent='الأوقات المتاحة يوم '+d.toLocaleDateString('ar-EG',{weekday:'long',day:'numeric',month:'long'});
+  slotsGrid.innerHTML='';
+  document.getElementById('chosenSlotLabel').textContent = selectedTime? (selectedDate+' — '+selectedTime) : 'لم يتم الاختيار بعد';
+  day.forEach(s=>{
+    const b=document.createElement('button');
+    let cls='p-3 rounded-xl text-[14px] font-bold border ';
+    if(s.st==='booked'){cls+='slot-booked'}else if(s.st==='closed'){cls+='slot-closed'}else{cls+='slot-available'}
+    if(selectedTime===s.t&&s.st==='open')cls+=' slot-selected';
+    b.className=cls;
+    b.textContent=s.t+(s.st==='booked'?' — محجوز':s.st==='closed'?' — مقفول':'');
+    b.disabled=(s.st!=='open');
+    b.onclick=()=>{selectedTime=s.t;renderSlots()};
+    slotsGrid.appendChild(b);
+  });
+  renderAdmin(day);
+}
+function renderAdmin(day){
+  if(!adminOpen)return;
+  const box=document.getElementById('adminSlots'); box.innerHTML='';
+  day.forEach((s,i)=>{
+    const b=document.createElement('button');
+    b.className='px-3 py-2 rounded-lg border text-[13px] font-bold '+(s.st==='open'?'bg-[#F3EDE2]':s.st==='booked'?'bg-gray-200 line-through':'bg-[#ffdad6]');
+    b.textContent=s.t+' ('+(s.st==='open'?'متاح':s.st==='booked'?'محجوز':'مقفول')+') ✎';
+    b.title='دوس للتبديل، Shift+كليك للمسح';
+    b.onclick=(e)=>{
+      const st=load(); const arr=st[selectedDate];
+      if(e.shiftKey){ if(confirm('مسح المعاد '+arr[i].t+' ؟')) arr[i] && arr.splice(i,1); }
+      else{
+        if(arr[i].st==='open')arr[i].st='closed';
+        else if(arr[i].st==='closed')arr[i].st='open';
+        else if(confirm('المعاد محجوز. افتحه تاني؟'))arr[i].st='open';
+      }
+      save(st);renderSlots();renderBooks();
+    };
+    box.appendChild(b);
+  });
+  renderBooks();
+}
+function renderBooks(){
+  const all=loadB().filter(x=>!selectedDate||x.date===selectedDate);
+  document.getElementById('bookCount').textContent=loadB().length;
+  const box=document.getElementById('bookList'); box.innerHTML= all.length?'':'<p class="text-[13px] text-gray-400">لا توجد حجوزات لليوم المختار بعد.</p>';
+  all.forEach((b,idx)=>{
+    const d=document.createElement('div');
+    d.className='p-2 rounded-lg bg-[#f5f3ef] text-[13px] flex justify-between items-center';
+    d.innerHTML=`<span><b>${b.name}</b> — ${b.date} ${b.time} — ${b.prog} — <span dir="ltr">${b.phone}</span></span>`;
+    const del=document.createElement('button');del.textContent='✕';del.className='text-red-600 font-bold px-2';
+    del.onclick=()=>{
+      if(!confirm('حذف الحجز وفتح المعاد تاني؟'))return;
+      let arr=loadB(); const item=all[idx];
+      arr=arr.filter(x=>!(x.date===item.date&&x.time===item.time&&x.phone===item.phone));
+      saveB(arr);
+      const st=load(); (st[item.date]||[]).forEach(s=>{if(s.t===item.time)s.st='open'}); save(st);
+      renderSlots();renderBooks();
+    };
+    d.appendChild(del);box.appendChild(d);
+  });
+}
+
+document.getElementById('prevWeek').onclick=()=>{if(weekOffset>0)weekOffset--;renderWeek()};
+document.getElementById('nextWeek').onclick=()=>{weekOffset++;renderWeek()};
+document.getElementById('confirmBtn').onclick=()=>{
+  const name=document.getElementById('fName').value.trim();
+  const phone=document.getElementById('fPhone').value.trim();
+  const prog=document.getElementById('fProg').value;
+  const note=document.getElementById('fNote').value.trim();
+  const msg=document.getElementById('msg');
+  if(!selectedDate||!selectedTime){msg.textContent='اختار اليوم والوقت الأول.';msg.style.color='red';return}
+  if(name.length<2){msg.textContent='اكتب الاسم.';msg.style.color='red';return}
+  if(phone.length<8){msg.textContent='اكتب رقم واتساب صحيح.';msg.style.color='red';return}
+  const st=load(); const slot=(st[selectedDate]||[]).find(s=>s.t===selectedTime);
+  if(!slot||slot.st!=='open'){msg.textContent='المعاد ده اتحجز، اختار معاد تاني.';msg.style.color='red';renderSlots();return}
+  slot.st='booked';save(st);
+  const arr=loadB();arr.push({name,phone,prog,note,date:selectedDate,time:selectedTime,at:new Date().toISOString()});saveB(arr);
+  const wa=(localStorage.getItem(WAKEY)||'201000000000').replace(/\D/g,'');
+  const text=encodeURIComponent(`حجز جديد — نور وإتقان\nالاسم: ${name}\nالهاتف: ${phone}\nالبرنامج: ${prog}\nالموعد: ${selectedDate} الساعة ${selectedTime}\nملاحظة: ${note}`);
+  const link=document.getElementById('waLink');
+  link.href=`https://wa.me/${wa}?text=${text}`;
+  link.classList.remove('hidden');
+  msg.textContent='تم الحجز بنجاح. دوس إرسال واتساب للتأكيد.';msg.style.color='green';
+  selectedTime=null;renderSlots();renderBooks();
+};
+document.getElementById('adminToggle').onclick=(e)=>{
+  adminOpen=!adminOpen;
+  document.getElementById('adminPanel').classList.toggle('hidden',!adminOpen);
+  e.target.textContent=adminOpen?'قفل التعديل':'فتح التعديل';
+  document.getElementById('sheikhWa').value=localStorage.getItem(WAKEY)||'';
+  renderSlots();
+};
+document.getElementById('sheikhWa').onchange=(e)=>localStorage.setItem(WAKEY,e.target.value);
+document.getElementById('addSlot').onclick=()=>{
+  const t=document.getElementById('newTime').value;
+  if(!t){alert('اختار الوقت');return}
+  const st=load(); const arr=ensureDay(selectedDate,st);
+  if(arr.find(x=>x.t===t)){alert('المعاد موجود بالفعل');return}
+  arr.push({t,st:'open'});arr.sort((a,b)=>a.t.localeCompare(b.t));save(st);renderSlots();
+};
+document.getElementById('closeDay').onclick=()=>{const st=load();ensureDay(selectedDate,st).forEach(s=>{if(s.st==='open')s.st='closed'});save(st);renderSlots()};
+document.getElementById('openDay').onclick=()=>{const st=load();ensureDay(selectedDate,st).forEach(s=>{if(s.st==='closed')s.st='open'});save(st);renderSlots()};
+document.getElementById('resetAll').onclick=()=>{if(confirm('ترجع كل المواعيد للافتراضي؟')){localStorage.removeItem(KEY);renderSlots()}};
+
+renderWeek();renderSlots();
+</script>
+<script>var mn=document.getElementById('mnav');if(mn)mn.onclick=()=>document.getElementById('mmenu').classList.toggle('hidden');</script>
+</body>
+</html>
