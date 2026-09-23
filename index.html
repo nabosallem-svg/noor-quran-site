@@ -1,72 +1,412 @@
-<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8"/><meta name="color-scheme" content="light"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>نور وإتقان — محفظ قرآن كريم</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>:root{color-scheme:light}body{font-family:'Plus Jakarta Sans',Tahoma;background:#fbf9f5;margin:0}h1,h2{font-family:'Noto Serif',serif}</style></head>
-<body>
-<nav class="sticky top-0 z-40 bg-[#fbf9f5]/95 backdrop-blur border-b border-[#e7dfce]">
-<div class="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between">
-<b class="text-[#132d27] text-[18px]">نور وإتقان</b>
-<div class="hidden md:flex gap-5 text-[14px] text-gray-600">
-<a href="index.html" class="font-bold text-[#132d27]">الرئيسية</a><a href="booking.html">المواعيد</a><a href="level-test.html">اختبار المستوى</a><a href="student.html">متابعة الطالب</a><a href="library.html">المكتبة والمدونة</a><a href="payment.html">الاشتراكات</a>
+<!DOCTYPE html><html dir="rtl" lang="ar"><head><meta charset="utf-8"><meta name="color-scheme" content="light"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_tab" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#fbf9f5;}body{overscroll-behavior:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-dim": "#dbdad6", "primary": "#001813", "background": "#fbf9f5", "tertiary-fixed": "#ffdea5", "inverse-on-surface": "#f2f0ed", "surface-bright": "#fbf9f5", "surface-container-lowest": "#ffffff", "tertiary-fixed-dim": "#e9c176", "tertiary-container": "#362500", "inverse-surface": "#30312e", "on-error": "#ffffff", "primary-fixed": "#cce9df", "on-primary-container": "#7a958d", "on-tertiary-container": "#ad8a46", "surface": "#fbf9f5", "surface-container-low": "#f5f3ef", "on-tertiary-fixed-variant": "#5d4201", "on-secondary-fixed-variant": "#155133", "primary-fixed-dim": "#b0cdc4", "surface-container-highest": "#e4e2de", "inverse-primary": "#b0cdc4", "error-container": "#ffdad6", "surface-container": "#efeeea", "primary-container": "#132d27", "on-secondary": "#ffffff", "tertiary": "#1d1200", "surface-tint": "#49645c", "secondary-fixed": "#b3f0c8", "on-background": "#1b1c1a", "on-primary-fixed-variant": "#324c45", "on-surface-variant": "#424846", "outline-variant": "#c1c8c5", "on-secondary-container": "#376f4f", "on-surface": "#1b1c1a", "on-primary": "#ffffff", "secondary-fixed-dim": "#98d4ad", "on-tertiary": "#ffffff", "on-primary-fixed": "#05201a", "secondary-container": "#b3f0c8", "on-secondary-fixed": "#002111", "secondary": "#30694a", "outline": "#727976", "on-tertiary-fixed": "#261900", "on-error-container": "#93000a", "error": "#ba1a1a", "surface-container-high": "#eae8e4", "surface-variant": "#e4e2de" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "space-xl": "2.5rem", "margin-desktop": "3rem", "margin": "1rem", "gutter-desktop": "2rem", "space-md": "1rem", "space-sm": "0.5rem" }, "fontFamily": { "label-md": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"], "headline-md": ["Noto Serif"], "headline-lg-mobile": ["Noto Serif"], "title-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "headline-lg": ["Noto Serif"], "display-hero": ["Noto Serif"], "display-hero-mobile": ["Noto Serif"], "body-md": ["Plus Jakarta Sans"] }, "fontSize": { "label-md": ["13px", { "lineHeight": "18px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "16px", "fontWeight": "500" }], "headline-md": ["24px", { "lineHeight": "34px", "fontWeight": "600" }], "headline-lg-mobile": ["26px", { "lineHeight": "36px", "fontWeight": "600" }], "title-md": ["18px", { "lineHeight": "28px", "fontWeight": "600" }], "body-lg": ["17px", { "lineHeight": "30px", "fontWeight": "400" }], "headline-lg": ["36px", { "lineHeight": "48px", "fontWeight": "600" }], "display-hero": ["48px", { "lineHeight": "64px", "fontWeight": "700" }], "display-hero-mobile": ["32px", { "lineHeight": "44px", "fontWeight": "700" }], "body-md": ["15px", { "lineHeight": "26px", "fontWeight": "400" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen selection:bg-secondary-fixed"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_4px_20px_rgba(19,45,39,0.03)]"><div class="h-16 px-gutter flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="القائمة الرئيسية" class="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-container-low text-primary hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[22px]">menu</span></button><div class="flex items-center gap-2"><img alt="Brand logo. - Primary color: #132d27 - Font: notoSerif - Mode: light - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1WDuQgNQCDWsk_vyS7rLCizB23PMaI9_N_dmntz0E2kShR1zn_r0OxO156fhM0eqFPckDTcXsHS-LX6XFISsIm3GavvxMXLZaSBODyz-zyoUjEOFQMoZTNfFLQrKE_AythL_KlmtJLydVzauXFfCFtMeut-IMyvcS1xnX3mO4UhD2o8paPfBfOd0QTgSqhIj2cLL5YLMcj-R_7ZCfLBnK0hmnnayResuuEavNNLrwB97d-J_n_Ya1gh2W4j"><div class="flex flex-col leading-tight"><span class="font-title-md text-title-md text-primary tracking-tight truncate">مقرأة الإتقان</span><span class="font-label-sm text-label-sm text-on-surface-variant truncate">الرئيسية</span></div></div></div><div class="flex items-center gap-space-sm"><a aria-label="احجز مجانا عبر واتساب" class="flex items-center gap-1.5 h-10 px-3 rounded-full bg-secondary text-on-secondary font-label-md text-label-md shadow-[0_4px_12px_rgba(48,105,74,0.2)] hover:bg-primary-container transition-colors" href="https://wa.me/201000000000" rel="noopener" target="_blank"><span class="material-symbols-outlined text-[18px]">chat</span><span class="hidden xs:inline">احجز مجاناً</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full text-on-surface">
+<!-- Floating Ambient Decorative Backdrop (No borders, pure soft tone) -->
+<div class="relative w-full px-gutter pt-space-sm pb-space-lg flex flex-col gap-space-lg">
+<!-- Hero Dignified Card -->
+<div class="relative w-full rounded-xl bg-surface-container-lowest shadow-[0_12px_36px_-6px_rgba(19,45,39,0.07)] overflow-hidden flex flex-col">
+<!-- Top Promotion Ribbon -->
+<div class="w-full bg-primary-container px-space-md py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-sm text-label-sm text-tertiary-fixed">الحصة التجريبية الأولى مجانية 100%</span>
 </div>
-<div class="flex gap-2">
-<a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] text-white text-[14px] font-bold"><span class="hidden sm:inline">احجز حصة تجريبية مجانية</span><span class="sm:hidden">احجز مجانا</span></a>
-<button id="mnav" class="md:hidden px-3 py-2 rounded-lg bg-[#efeeea] font-bold">القائمة</button>
-</div></div>
-<div id="mmenu" class="hidden md:hidden border-t border-[#e7dfce] px-4 py-2 flex-col gap-2 text-[14px] bg-[#fbf9f5]">
-<a href="index.html">الرئيسية</a><a href="booking.html">المواعيد والحجز</a><a href="level-test.html">اختبار تحديد المستوى</a><a href="student.html">دفتر متابعة الطالب</a><a href="library.html">المكتبة الصوتية والمدونة</a><a href="payment.html">الاشتراكات والدفع</a>
-</div></nav>
-
-<header class="max-w-[1200px] mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
+<span class="font-label-sm text-label-sm text-on-primary-container">دون التزام مسبق</span>
+</div>
+<!-- Sheikh Profile & Atmospheric Visual Framing -->
+<div class="p-space-md flex flex-col gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="relative w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-md">
+<img alt="فضيلة الشيخ المقرئ" class="w-full h-full object-cover object-top" src="https://lh3.googleusercontent.com/aida/AEtjO1UJ3E1cnk2HGbV5nuMPjLmdr4qfaT7lKxUhIxBY33XZ4aMeHgLKG-tyFQbvi4vcKd-_MMbNfDK-egMyAizoelgHXkt2QNbQ6HMIZwgSgkw5qmoP3Fico_Mhp_XhN6RtQo9y94D7k_7k05WkQCuaudV8lUHm75Ju0Fo-RngGHEb1iCXP9GLtqVJhFQpllTRhJAEmpFK8pN3xsE0pxNTSbRk3O8jOlnIIyvUipaSN9atG9m1g6D8n76wZjFXq">
+<div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-1 mb-0.5">
+<span class="material-symbols-outlined text-secondary text-[16px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">مقرئ معتمد بالقراءات العشر</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight leading-tight">
+              الشيخ د. عبد الرحمن البوسعيدي
+            </h1>
+<p class="font-label-md text-label-md text-on-surface-variant mt-0.5">
+              إسناد متصل إلى رسول الله ﷺ
+            </p>
+</div>
+</div>
+<!-- Headline Value Proposition -->
+<div class="space-y-1.5 bg-surface-container-low p-space-md rounded-lg">
+<h2 class="font-title-md text-title-md text-primary font-bold leading-snug">
+            أتقن حفظ وفهم كتاب الله من بيتك
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            جلسات قرآنية خاصة (مباشرة 1 إلى 1) تجمع بين التحقيق الصوتي الدقيق، تيسير الحفظ، وتثبيت التجويد للنشء والكبار حول العالم.
+          </p>
+</div>
+<!-- Dual Primary Action CTAs -->
+<div class="flex flex-col gap-2.5 pt-1">
+<button class="w-full h-12 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(48,105,74,0.28)] active:scale-[0.98] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">event_available</span>
+<span>احجز حصتك التقييمية المجانية</span>
+</button>
+<a class="w-full h-12 rounded-xl bg-surface-container-high text-primary font-label-md text-label-md flex items-center justify-center gap-2 active:bg-surface-container-highest transition-colors" href="https://wa.me/201000000000" rel="noopener" target="_blank">
+<span class="material-symbols-outlined text-secondary text-[20px]">chat</span>
+<span>مراسلة مباشرة عبر واتساب</span>
+</a>
+</div>
+</div>
+<!-- Quick Social Proof Metric Bar -->
+<div class="grid grid-cols-3 bg-surface-container-low px-space-md py-3 text-center">
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-bold">+15</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">عاماً في الإقراء</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-secondary font-bold">10</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">قراءات متواترة</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md text-primary font-bold">+450</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">طالباً ومجازاً</span>
+</div>
+</div>
+</div>
+<!-- Quranic Audio Preview Player (Interactive Micro Delight) -->
+<div class="w-full rounded-xl bg-primary text-on-primary p-space-md shadow-md flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">graphic_eq</span>
+</div>
 <div>
-<span class="bg-white px-3 py-1 rounded-full text-[13px] text-[#30694a] shadow-sm font-bold">الحصة التجريبية الأولى مجانية</span>
-<h1 class="text-[34px] md:text-[48px] font-bold text-[#132d27] leading-tight mt-3">احفظ القرآن بإتقان بالتجويد والمراجعة المستمرة</h1>
-<p class="text-gray-600 mt-3 text-[17px]">تحفيظ فردي أونلاين وحضوري للأطفال والكبار. متابعة يومية ومراجعة واختبارات دورية مع شيخ مجاز بالسند المتصل.</p>
-<div class="flex flex-wrap gap-2 mt-5">
-<a href="booking.html" class="px-6 py-3 rounded-xl bg-[#30694a] text-white font-bold">احجز موعدك</a>
-<a id="waTop" href="https://wa.me/201000000000" target="_blank" class="px-6 py-3 rounded-xl bg-[#132d27] text-white font-bold">تواصل واتساب</a>
+<h3 class="font-title-md text-title-md text-on-primary leading-tight">عينة من التلاوة المرتلة</h3>
+<p class="font-label-sm text-label-sm text-primary-fixed-dim">سورة مريم • برواية حفص عن عاصم</p>
 </div>
-<div class="flex flex-wrap gap-2 mt-5 text-[13px]">
-<span class="bg-white px-3 py-1 rounded-full shadow-sm">أكثر من 500 طالب</span>
-<span class="bg-white px-3 py-1 rounded-full shadow-sm">خبرة 10 سنوات</span>
-<span class="bg-white px-3 py-1 rounded-full shadow-sm">سند متصل</span>
-</div></div>
-<div class="bg-[#132d27] text-white rounded-3xl p-8">
-<div class="text-[13px] text-[#C5A059] font-bold">فضيلة الشيخ — مجاز بالسند المتصل</div>
-<div class="text-[22px] font-bold mt-2">تحفيظ بالتلقين وتصحيح التلاوة وخطة فردية لكل طالب</div>
-<ul class="mt-4 text-[14px] space-y-2 text-[#e4e2de]">
-<li>تشخيص مستوى مجاني قبل البدء</li>
-<li>ماض قريب وماض بعيد في كل حصة</li>
-<li>تقرير شهري لولي الأمر</li>
-</ul>
-<a href="level-test.html" class="inline-block mt-5 px-5 py-2 rounded-lg bg-[#C5A059] text-[#132d27] font-bold text-[14px]">ابدأ باختبار المستوى (دقيقتان)</a>
-</div></header>
+</div>
+<span class="font-label-sm text-label-sm bg-primary-container px-2 py-1 rounded-md text-tertiary-fixed">
+          دقيقة تدبر
+        </span>
+</div>
+<!-- Player Controls & Waveform Simulation -->
+<div class="bg-primary-container/80 rounded-lg p-space-sm flex items-center gap-3">
+<button aria-label="تشغيل التلاوة" class="w-11 h-11 rounded-full bg-tertiary-fixed text-primary flex items-center justify-center shrink-0 shadow-sm active:scale-95 transition-transform" id="audio-play-toggle">
+<span class="material-symbols-outlined text-[22px]" id="audio-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<!-- Simulated SVG Waveform -->
+<div class="flex-1 flex flex-col gap-1 min-w-0">
+<div class="flex items-end gap-1 h-6 px-1 overflow-hidden" id="waveform-bars">
+<div class="w-1 bg-tertiary-fixed-dim rounded-full h-2 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed-dim rounded-full h-4 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed rounded-full h-6 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed-dim rounded-full h-3 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed-dim rounded-full h-5 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed rounded-full h-6 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed-dim rounded-full h-4 transition-all duration-300"></div>
+<div class="w-1 bg-tertiary-fixed-dim rounded-full h-2 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-4 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-5 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-3 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-1 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-4 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-2 transition-all duration-300"></div>
+<div class="w-1 bg-secondary rounded-full h-5 transition-all duration-300"></div>
+</div>
+<div class="flex justify-between items-center text-primary-fixed-dim font-label-sm text-label-sm px-1">
+<span id="audio-time">00:48</span>
+<span>02:15</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Student Code Fast Access Modal/Bar -->
+<div class="w-full rounded-xl bg-surface-container-low p-space-md shadow-sm flex flex-col gap-2">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">badge</span>
+</div>
+<span class="font-title-md text-title-md text-primary font-bold">بوابة الطلاب المقيدين</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        أدخل رمزك الخاص للاطلاع الفوري على سجل المتابعة والواجبات والتسجيلات الصوتية:
+      </p>
+<div class="flex items-center gap-2 mt-1">
+<input class="flex-1 h-12 rounded-xl bg-surface-container-lowest text-primary font-title-md text-title-md text-center tracking-widest placeholder:text-outline-variant placeholder:font-body-md placeholder:tracking-normal focus:outline-none focus:bg-surface-container-lowest shadow-inner" maxlength="6" placeholder="مثال: IQ-4091" type="text">
+<button class="h-12 px-4 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center gap-1 active:bg-primary-container transition-colors" type="button">
+<span>دخول</span>
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</button>
+</div>
+</div>
+<!-- Core Features: Why 1-on-1 with Sheikh? -->
+<div class="flex flex-col gap-space-sm pt-2">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold">المنهجية التعليمية</span>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">لماذا الإقراء الفردي؟</h2>
+</div>
+<span class="material-symbols-outlined text-secondary text-[26px]">school</span>
+</div>
+<div class="grid grid-cols-1 gap-space-sm mt-1">
+<!-- Feature 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-[24px]">center_focus_strong</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-primary font-bold">تركيز كامل بنسبة 100%</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5 leading-relaxed">
+              الحصة مخصصة لك بالكامل، دون هدر للوقت في انتظار دورك كما في الحلقات الجماعية.
+            </p>
+</div>
+</div>
+<!-- Feature 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed shrink-0">
+<span class="material-symbols-outlined text-[24px]">schedule</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-primary font-bold">مواعيد مرنة للمغتربين</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5 leading-relaxed">
+              جدولة تراعي فروق التوقيت لأبنائنا في أوروبا، أمريكا الشمالية، ودول الخليج.
+            </p>
+</div>
+</div>
+<!-- Feature 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-[24px]">record_voice_over</span>
+</div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-primary font-bold">تصحيح صوتي فوري ودقيق</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5 leading-relaxed">
+              تدريب وتطبيق فوري لأحكام التجويد والصفات ومخارج الحروف بالسماع والمشافهة.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Educational Tracks Mosaic -->
+<div class="flex flex-col gap-space-sm pt-2">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold">المسارات المتخصصة</span>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">اختر مسارك القرآني</h2>
+</div>
+<!-- Track 1: Children -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="h-36 w-full relative">
+<img class="w-full h-full object-cover" data-alt="An overhead peaceful photograph of a young Muslim child learning the Holy Quran on an authentic carved wooden stand in a warm natural daylight study room with soft emerald and cream tones, captured with shallow depth of field, respectful and serene ambiance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYeMv6RBsCMR3ITUz-j6VrLK52GkImh-2CIPmANZ7rN2uHNtSPxBETTbBFUd3rcxlTBmpYWqcbjNwuWSDxGrPTj4KPjLTbvfyYnIiryKsHO-pON0sN_h56ZkCZLQOQyUyYxhMUrQ6YmIjH59LMt8hNV8Ef8NKixp57hoLYbobhRnsT51QxglsvDdNzlQND_3_vBuo-MibBchxyFtN3ywycwKrf4qV1bJpRiHz0_shJazoqdMQzZ7J19Q">
+<div class="absolute top-3 right-3 bg-secondary text-on-secondary px-2.5 py-1 rounded-full font-label-sm text-label-sm">
+            للأعمار 6 - 15 سنة
+          </div>
+</div>
+<div class="p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-primary font-bold">مسار براعم الإتقان (الناشئة)</h3>
+<span class="font-label-md text-label-md text-secondary font-bold">تأسيس &amp; تحفيظ</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            أسلوب مبسط قائم على التشجيع، إتقان القاعدة النورانية، وحفظ قصار السور بفهم المعاني وترسيخ العقيدة.
+          </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> تقرير أسبوعي لولي الأمر</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> جوائز تحفيزية</span>
+</div>
+</div>
+</div>
+<!-- Track 2: Adults & Tajweed -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="h-36 w-full relative">
+<img class="w-full h-full object-cover" data-alt="Close-up serene photographic view of an adult hand turning the pages of an elegant gold-illuminated Quran with traditional Arabic calligraphy, surrounded by natural wood textures and warm ambient study lamplight, deeply tranquil and spiritual aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9i87grQRZVuMNxPZO-TWR6X2pHcTmeaN0y1n1sLRFGm5xiAoALalpj-ecx1tPT1EnSBE6b_g-3ZzJLA_BDqSsphtdC2mwWKxnapf3ZFulvr_4Yx9MvizC7ozQAJe_pVjbRAbv-z03vipgHydUixA_zwiK3pVb2hsQYVrn-QFQ6sAHL9KyUISsrSvq_7OuXivEWpASGFVVZDmA3YFZd7ylxu5sE6whxavNpLmzwSeR_gSiuGf99ET5nQ">
+<div class="absolute top-3 right-3 bg-primary text-on-primary px-2.5 py-1 rounded-full font-label-sm text-label-sm">
+            للكبار والجامعيين
+          </div>
+</div>
+<div class="p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-primary font-bold">مسار ضبط التلاوة وتصحيحها</h3>
+<span class="font-label-md text-label-md text-secondary font-bold">تجويد متقدم</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            مخصص للراغبين في قراءة القرآن قراءة صحيحة خالية من اللحن، مع مدارسة أحكام التجويد العملية خطوة بخطوة.
+          </p>
+<div class="flex items-center gap-2 pt-1 text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> تصحيح فردي دقيق</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span> تسجيل الحصة صوتياً</span>
+</div>
+</div>
+</div>
+<!-- Track 3: Ijazah (Featured) -->
+<div class="rounded-xl bg-primary text-on-primary shadow-lg p-space-md flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="inline-flex items-center gap-1 bg-tertiary-fixed text-tertiary-container px-2.5 py-1 rounded-full font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span>المسار التخصصي الأعلى</span>
+</div>
+<span class="font-label-md text-label-md text-primary-fixed">بالسند المتصل</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-primary font-bold">مسار الإجازة بالسند المتصل</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim mt-1">
+            ختمة كاملة غيباً أو نظراً بأحد الروايات المتواترة (حفص، ورش، قالون، شعبة...) لنيل إجازة مسندة إلى النبي ﷺ.
+          </p>
+</div>
+<div class="bg-primary-container p-3 rounded-lg flex items-center justify-between">
+<span class="font-label-md text-label-md text-tertiary-fixed">يتطلب اجتياز اختبار القبول القبلي</span>
+<span class="material-symbols-outlined text-tertiary-fixed text-[20px]">arrow_back</span>
+</div>
+</div>
+</div>
+<!-- 3 Simple Steps to Start -->
+<div class="w-full rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold">البداية سهلة وميسرة</span>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">كيف تبدأ رحلتك القرآنية؟</h3>
+</div>
+<div class="flex flex-col gap-space-md relative">
+<!-- Step 1 -->
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-full bg-secondary text-on-secondary font-headline-md text-title-md flex items-center justify-center shrink-0 shadow-sm">
+            1
+          </div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-primary font-bold">حجز جلسة التقييم (مجاناً)</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              اختر الموعد الأنسب لك في التقويم ليجتمع بك فضيلة الشيخ في لقاء مرئي قصير لاختبار المستوى وتحديد الأهداف.
+            </p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-full bg-secondary text-on-secondary font-headline-md text-title-md flex items-center justify-center shrink-0 shadow-sm">
+            2
+          </div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-primary font-bold">تصميم الخطة المخصصة</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              يضع الشيخ خطة تناسب وقتك وقدرتك على الحفظ، مع جدول أسبوعي واضح ومريح.
+            </p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-start gap-space-md">
+<div class="w-9 h-9 rounded-full bg-primary text-on-primary font-headline-md text-title-md flex items-center justify-center shrink-0 shadow-sm">
+            3
+          </div>
+<div class="flex flex-col min-w-0">
+<h4 class="font-title-md text-title-md text-primary font-bold">الانطلاق في الحفظ والمتابعة</h4>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              حضور الجلسات بانتظام ومتابعة التقدم اليومي عبر كود الطالب المخصص لك أو لطفلك.
+            </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Heartwarming Testimonials from Parents & Overseas Seekers -->
+<div class="flex flex-col gap-space-sm pt-2">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary font-bold">ثمار المتابعة المستمرة</span>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">ماذا يقول طلابنا وأولياء الأمور؟</h2>
+</div>
+<span class="material-symbols-outlined text-secondary text-[26px]" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<!-- Testimonial 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-title-md text-title-md text-primary font-bold">
+              م
+            </div>
+<div>
+<h4 class="font-title-md text-title-md text-primary font-bold">م. أنس المنصوري</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">مقيم في كندا (ولي أمر الطالب يوسف - 9 سنوات)</p>
+</div>
+</div>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          «كنا نعاني من صعوبة إيجاد معلم يتقن أسلوب التحبيب والتأسيس السليم لأطفالنا في الغربة. الشيخ جمع بين الصبر التربوي العظيم والإتقان التجويدي المبهر. أتم ابني حفظ جزئي عم وتبارك بإتقان.»
+        </p>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-title-md text-title-md text-primary font-bold">
+              ف
+            </div>
+<div>
+<h4 class="font-title-md text-title-md text-primary font-bold">فهد بن سعد الدوسري</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">المملكة العربية السعودية (طالب إجازة برواية حفص)</p>
+</div>
+</div>
+<div class="flex text-tertiary-container">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          «دقة فضيلة الشيخ في ملاحظة أدق تفاصيل الغنن والتفخيم والترقيق لم أرَ لها مثيلاً. المتابعة بعد كل حصة والتسجيلات تركت أثراً بالغاً في تثبيت قراءتي ونيل الإجازة بفضل الله.»
+        </p>
+</div>
+</div>
+<!-- Final High-Conversion Sticky-Friendly Banner -->
+<div class="rounded-xl bg-surface-container-highest p-space-md flex flex-col items-center text-center gap-3 shadow-sm mb-2">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">ابدأ حفظ القرآن اليوم</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs mx-auto mt-1">
+          خيركم من تعلّم القرآن وعلّمه. لا تتردد في خوض التجربة الأولى مجاناً مع الشيخ.
+        </p>
+</div>
+<button class="w-full h-12 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md flex items-center justify-center gap-2 shadow-md active:scale-[0.98] transition-transform" type="button">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+<span>اختر موعد جلستك المجانية الآن</span>
+</button>
+</div>
+</div>
+<!-- Interactive Logic for Audio Snippet Micro-Delight -->
+<script>
+    (function() {
+      const playBtn = document.getElementById('audio-play-toggle');
+      const icon = document.getElementById('audio-icon');
+      const timeSpan = document.getElementById('audio-time');
+      const bars = document.querySelectorAll('#waveform-bars > div');
+      let isPlaying = false;
+      let intervalId = null;
+      let seconds = 48;
 
-<section class="max-w-[1200px] mx-auto px-4 py-8">
-<h2 class="text-[26px] font-bold text-[#132d27] mb-4">البرامج</h2>
-<div class="grid md:grid-cols-3 gap-4">
-<div class="bg-white rounded-2xl p-5 border shadow-sm"><b>تحفيظ الأطفال</b><p class="text-[14px] text-gray-500 mt-1">تلقين وتكرار وتحفيز. مدة الحصة 30 دقيقة مع متابعة صوتية للمراجعة.</p><a href="booking.html" class="text-[#30694a] font-bold text-[14px]">احجز الآن</a></div>
-<div class="bg-white rounded-2xl p-5 border shadow-sm"><b>تحفيظ الكبار</b><p class="text-[14px] text-gray-500 mt-1">حفظ ومراجعة حسب وقتك مع ضبط التجويد ومسار للإجازة.</p><a href="booking.html" class="text-[#30694a] font-bold text-[14px]">احجز الآن</a></div>
-<div class="bg-white rounded-2xl p-5 border shadow-sm"><b>تحفيظ أونلاين فردي</b><p class="text-[14px] text-gray-500 mt-1">عبر زوم أو جوجل ميت. مناسب للمغتربين مع مراعاة فرق التوقيت.</p><a href="booking.html" class="text-[#30694a] font-bold text-[14px]">احجز الآن</a></div>
-</div></section>
-
-<section class="max-w-[1200px] mx-auto px-4 py-8">
-<h2 class="text-[26px] font-bold text-[#132d27] mb-1">الاشتراكات</h2>
-<p class="text-[13px] text-gray-500 mb-4">أسعار استرشادية للعرض — يتم اعتماد الأسعار النهائية من الشيخ قبل النشر.</p>
-<div class="grid md:grid-cols-3 gap-4">
-<div class="bg-white rounded-2xl p-6 border text-center"><b>8 حصص شهريا</b><div class="text-[30px] font-bold text-[#132d27] my-2">400 جنيه</div><p class="text-[13px] text-gray-500">الحصة 30 دقيقة — مراجعة أسبوعية</p><a href="payment.html" class="block mt-4 py-2 rounded-lg bg-[#efeeea] font-bold">اختيار الباقة</a></div>
-<div class="bg-[#132d27] text-white rounded-2xl p-6 border-2 border-[#C5A059] text-center relative"><span class="absolute -top-3 right-6 bg-[#C5A059] text-[#132d27] text-[12px] px-3 py-0.5 rounded-full font-bold">الأكثر اشتراكا</span><b>12 حصة شهريا</b><div class="text-[30px] font-bold my-2">600 جنيه</div><p class="text-[13px] text-[#b0cdc4]">الحصة 60 دقيقة — تقرير شهري — مكتبة صوتية</p><a href="payment.html" class="block mt-4 py-2 rounded-lg bg-[#30694a] font-bold">اختيار الباقة</a></div>
-<div class="bg-white rounded-2xl p-6 border text-center"><b>باقة الأسرة</b><div class="text-[30px] font-bold text-[#132d27] my-2">خصم 10%</div><p class="text-[13px] text-gray-500">لأخوين أو أكثر بنفس المواعيد</p><a href="payment.html" class="block mt-4 py-2 rounded-lg bg-[#efeeea] font-bold">اختيار الباقة</a></div>
-</div></section>
-
-<section class="max-w-[1200px] mx-auto px-4 py-8 grid md:grid-cols-2 gap-4">
-<div class="bg-white rounded-2xl p-5 border"><h3 class="font-bold text-[#132d27] mb-2">كيف تشترك؟</h3><ol class="text-[14px] space-y-1 text-gray-600"><li>1. أجر اختبار المستوى أو احجز مباشرة.</li><li>2. اختر الموعد المناسب من التقويم.</li><li>3. حول الاشتراك وأرسل صورة التحويل على واتساب.</li></ol></div>
-<div class="bg-white rounded-2xl p-5 border"><h3 class="font-bold text-[#132d27] mb-2">أسئلة شائعة</h3><p class="text-[14px] text-gray-600">هل الحصص فردية؟ نعم. السن المناسب؟ من 4 سنوات. هل يوجد أونلاين؟ نعم. <a href="library.html" class="text-[#30694a] font-bold">عرض المكتبة والمدونة</a></p></div>
-</section>
-
-<footer class="border-t mt-8 py-6 text-center text-[13px] text-gray-500">نور وإتقان 2025 — <a href="student.html" class="underline">دخول الطالب</a> — <a href="payment.html" class="underline">الدفع</a> — <a href="booking.html" class="underline">الحجز</a></footer>
-<script>document.getElementById('mnav').onclick=()=>{var mm=document.getElementById('mmenu');mm.classList.toggle('hidden');mm.classList.toggle('flex')};
-try{const w=localStorage.getItem('itqan_wa');if(w&&w.replace(/\D/g,'').length>=8)document.getElementById('waTop').href='https://wa.me/'+w.replace(/\D/g,'');}catch(e){}</script>
-</body></html>
+      if (playBtn && icon && timeSpan) {
+        playBtn.addEventListener('click', function() {
+          isPlaying = !isPlaying;
+          if (isPlaying) {
+            icon.textContent = 'pause';
+            // Animate waveform bars randomly
+            intervalId = setInterval(() => {
+              bars.forEach(bar => {
+                const randomHeight = Math.floor(Math.random() * 20) + 6;
+                bar.style.height = randomHeight + 'px';
+              });
+              seconds++;
+              const mins = Math.floor(seconds / 60);
+              const remSecs = seconds % 60;
+              timeSpan.textContent = (mins < 10 ? '0' : '') + mins + ':' + (remSecs < 10 ? '0' : '') + remSecs;
+            }, 250);
+          } else {
+            icon.textContent = 'play_arrow';
+            clearInterval(intervalId);
+          }
+        });
+      }
+    })();
+  </script>
+</div></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(19,45,39,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">اختبار المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav></body></html>
