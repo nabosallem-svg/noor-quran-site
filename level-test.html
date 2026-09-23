@@ -12,10 +12,10 @@
 </div>
 <div class="flex items-center gap-2">
 <button onclick="history.back()" class="px-4 py-1.5 rounded-full bg-white border border-[#C5A059] text-[#132d27] text-[13px] font-bold hover:bg-[#132d27] hover:text-white transition">→ رجوع</button>
-<a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] text-white text-[14px] font-bold">احجز حصة تجريبية مجانية</a>
+<a href="booking.html" class="px-4 py-2 rounded-lg bg-[#30694a] text-white text-[14px] font-bold"><span class="hidden sm:inline">احجز حصة تجريبية مجانية</span><span class="sm:hidden">احجز مجانا</span></a>
 <button id="mnav" class="md:hidden px-3 py-2 rounded-lg bg-[#efeeea] font-bold">القائمة</button>
 </div></div>
-<div id="mmenu" class="hidden md:hidden border-t border-[#e7dfce] px-4 py-2 flex flex-col gap-2 text-[14px] bg-[#fbf9f5]">
+<div id="mmenu" class="hidden md:hidden border-t border-[#e7dfce] px-4 py-2 flex-col gap-2 text-[14px] bg-[#fbf9f5]">
 <a href="index.html">الرئيسية</a><a href="booking.html">المواعيد والحجز</a><a href="level-test.html" class="font-bold">اختبار تحديد المستوى</a><a href="student.html">دفتر متابعة الطالب</a><a href="library.html">المكتبة الصوتية والمدونة</a><a href="payment.html">الاشتراكات والدفع</a>
 </div></nav>
 <div class="max-w-[720px] mx-auto px-4 py-10">
@@ -51,4 +51,4 @@ const st=await navigator.mediaDevices.getUserMedia({audio:true});mr=new MediaRec
 mr.ondataavailable=e=>chunks.push(e.data);mr.onstop=()=>{const b=new Blob(chunks,{type:'audio/webm'});const a=document.getElementById('aud');a.src=URL.createObjectURL(b);a.classList.remove('hidden');document.getElementById('recSt').textContent='تم التسجيل بنجاح'};mr.start();rec.textContent='إيقاف التسجيل';document.getElementById('recSt').textContent='جار التسجيل...';
 }catch(e){alert('تعذر الوصول إلى الميكروفون. يمكنك إكمال الاختبار بدون تسجيل')}};
 </script>
-<script>var mn=document.getElementById('mnav');if(mn)mn.onclick=()=>document.getElementById('mmenu').classList.toggle('hidden');</script></body></html>
+<script>var mn=document.getElementById('mnav');if(mn)mn.onclick=()=>{var mm=document.getElementById('mmenu');mm.classList.toggle('hidden');mm.classList.toggle('flex')};</script></body></html>
