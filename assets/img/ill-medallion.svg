@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="مقرأة الإتقان">
+  <defs><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1E3470"/><stop offset="1" stop-color="#0F1B3D"/></linearGradient></defs>
+  <circle cx="60" cy="60" r="60" fill="url(#m)"/>
+  <g fill="none" stroke="#E2B65C" stroke-width="2.5" stroke-linejoin="round">
+    <rect x="28" y="28" width="64" height="64" rx="3"/><rect x="28" y="28" width="64" height="64" rx="3" transform="rotate(45 60 60)"/>
+  </g>
+  <path d="M60 52c-6-3.6-12.5-4.6-18.5-3.4v26c6-1.2 12.5-.2 18.5 3.4 6-3.6 12.5-4.6 18.5-3.4v-26c-6-1.2-12.5-.2-18.5 3.4z" fill="#F6DFA6"/>
+  <path d="M60 52v26" stroke="#0F1B3D" stroke-width="1.6"/>
+</svg>
