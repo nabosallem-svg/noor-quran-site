@@ -1,0 +1,26 @@
+/* Shared look for all pages: night-blue header, gold star pattern on dark panels, copper call-to-action buttons. */
+
+/* Header */
+header.fixed{background:linear-gradient(180deg,#0F1B3D 0%,#16285A 100%)!important;border-bottom:1px solid rgba(226,182,92,.35);box-shadow:0 6px 24px rgba(15,27,61,.18)!important}
+header.fixed>div:first-child .text-primary{color:#fff!important}
+header.fixed>div:first-child .text-on-surface-variant{color:#C9D2EE!important}
+header.fixed>div:first-child button.bg-surface-container-low{background:rgba(255,255,255,.08)!important;color:#fff!important}
+header.fixed>div:first-child .bg-primary{background:#E2B65C!important}
+header.fixed>div:first-child .bg-primary .text-on-primary{color:#0F1B3D!important}
+
+/* Dark panels get the eight-point star pattern */
+main :is(.bg-primary-container,.bg-primary):is(.p-4,.p-5,.p-6,.p-space-md,.p-space-lg,.p-gutter,.px-gutter,.px-space-md){
+  background-image:url(img/pattern.svg),radial-gradient(120% 90% at 100% 0%,rgba(226,182,92,.18),transparent 60%);
+  background-size:48px 48px,auto;
+}
+
+/* Call-to-action buttons: copper gradient */
+.bg-secondary{background-image:linear-gradient(135deg,#B8621F 0%,#9A4714 100%)}
+
+/* Cards: softer corners and a warmer shadow */
+main .rounded-xl.shadow-sm,main .rounded-xl.shadow-md{border:1px solid rgba(15,27,61,.06)}
+
+/* Bottom navigation: active tab in copper with a gold indicator */
+nav.fixed.bottom-0{background:rgba(255,255,255,.94)!important;border-top:1px solid rgba(15,27,61,.08)}
+nav.fixed.bottom-0 a.text-secondary{position:relative}
+nav.fixed.bottom-0 a.text-secondary::before{content:"";position:absolute;top:-6px;left:50%;width:22px;height:3px;margin-left:-11px;border-radius:3px;background:#E2B65C}
