@@ -48,7 +48,9 @@
   /* ───── HTTP ───── */
 
   function headers(token, extra) {
-    var h = { apikey: KEY, Authorization: 'Bearer ' + (token || KEY) };
+    var h = { apikey: KEY };
+    // New-style publishable keys (sb_publishable_…) go only in apikey; old anon keys are JWTs and also go in Authorization.
+    if (token || KEY.indexOf('eyJ') === 0) h.Authorization = 'Bearer ' + (token || KEY);
     for (var k in extra || {}) h[k] = extra[k];
     return h;
   }
