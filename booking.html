@@ -146,7 +146,7 @@
 <label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="studentName">اسم الطالب أو المستفيد</label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">badge</span>
-<input class="w-full h-12 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all placeholder:text-outline-variant" id="studentName" placeholder="مثال: يوسف إبراهيم (أو اسم الطفل)" type="text" value="عمر الشريف">
+<input class="w-full h-12 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all placeholder:text-outline-variant" id="studentName" placeholder="مثال: يوسف إبراهيم (أو اسم الطفل)" type="text" autocomplete="name">
 </div>
 </div>
 <!-- Age & Category Split -->
@@ -155,14 +155,14 @@
 <label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="studentAge">العمر</label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">cake</span>
-<input class="w-full h-12 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all" id="studentAge" placeholder="مثال: ٩" type="number" value="١٠">
+<input class="w-full h-12 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all" id="studentAge" placeholder="مثال: ٩" type="number" min="3" max="99">
 </div>
 </div>
 <div>
 <label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="studentCountry">بلد الإقامة</label>
 <div class="relative flex items-center">
 <span class="material-symbols-outlined absolute right-3 text-outline text-[20px] pointer-events-none">flag</span>
-<input class="w-full h-12 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all" id="studentCountry" placeholder="مثال: بريطانيا" type="text" value="ألمانيا">
+<input class="w-full h-12 pr-10 pl-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all" id="studentCountry" placeholder="مثال: بريطانيا" type="text">
 </div>
 </div>
 </div>
@@ -170,7 +170,7 @@
 <div>
 <label class="block font-label-sm text-label-sm text-on-surface-variant mb-1" for="studentPhone">رقم الواتساب (لإرسال رابط Zoom)</label>
 <div class="relative flex items-center" dir="ltr">
-<input class="w-full h-12 pl-10 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all text-left" id="studentPhone" placeholder="+44 7123 456789" type="tel" value="+49 152 98765432">
+<input class="w-full h-12 pl-10 pr-3 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none transition-all text-left" id="studentPhone" placeholder="+44 7123 456789" type="tel" autocomplete="tel">
 <span class="material-symbols-outlined absolute left-3 text-secondary text-[20px] pointer-events-none">chat</span>
 </div>
 <p class="font-label-sm text-label-sm text-outline mt-1 pr-1">سنرسل لك دعوة الغرفة الافتراضية والتذكير قبل الموعد بـ ٣٠ دقيقة تلقائياً.</p>
@@ -249,7 +249,7 @@
 <!-- Toast Notification Feedback (Client interaction) -->
 <div class="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-primary-container text-on-primary px-4 py-2.5 rounded-full shadow-xl flex items-center gap-2 transition-all opacity-0 pointer-events-none transform -translate-y-2" id="bookingToast">
 <span class="material-symbols-outlined text-secondary-fixed text-[18px]">task_alt</span>
-<span class="font-label-md text-label-md">جاري تحويلك لواتساب فضيلة الشيخ...</span>
+<span class="font-label-md text-label-md">جاري تأكيد الحجز...</span>
 </div>
 </div>
 <script>
@@ -337,42 +337,58 @@
       icon.classList.remove('rotate-180');
     }
   }
-</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,27,61,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav><script>
-/* Real booking engine - Noor Etqan */
-var RT_DEF=['08:00','09:30','11:00','14:00','16:00','17:30','19:00','20:30'];
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,27,61,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav><script src="assets/js/config.js"></script><script src="assets/js/api.js"></script>
+<script>
+/* Booking engine: open slots come from the database, so two people can never take the same one. */
+var API=window.ItqanAPI;
 var RT_DAYS=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+var RT={settings:null,taken:{},days:[]};
 window._selISO='';window._selTime='';
-function rtStore(){try{return JSON.parse(localStorage.getItem('itqan_slots_v1')||'{}')}catch(e){return{}}}
-function rtSave(s){try{localStorage.setItem('itqan_slots_v1',JSON.stringify(s))}catch(e){}}
-function rtDay(iso){var st=rtStore();if(!st[iso]){st[iso]=RT_DEF.map(function(t){return{t:t,st:'open'}});rtSave(st)}return st[iso]}
 function rtFmt(t){try{return new Date('2000-01-01T'+t+':00').toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})}catch(e){return t}}
 function rtEnd(t){try{var d=new Date('2000-01-01T'+t+':00');d.setMinutes(d.getMinutes()+30);return d.toLocaleTimeString('ar-EG',{hour:'2-digit',minute:'2-digit'})}catch(e){return t}}
 function rtHijri(d){try{return new Intl.DateTimeFormat('ar-SA-islamic',{day:'numeric',month:'long'}).format(d)}catch(e){return''}}
+function rtOpen(iso){
+  var s=RT.settings,tk=RT.taken[iso]||{},now=API.siteNow();
+  if(tk['*'])return[];
+  var dow=new Date(iso+'T12:00:00').getDay();
+  if((s.closed_weekdays||[]).indexOf(dow)>-1)return[];
+  return (s.slot_times||[]).filter(function(t){return !tk[t]&&!(iso===now.date&&t<=now.time)&&iso>=now.date});
+}
+function rtLoad(){
+  var strip=document.getElementById('datePickerStrip');
+  if(strip)strip.innerHTML='<p class="font-label-md text-label-md text-on-surface-variant py-6 w-full text-center">جاري تحميل المواعيد...</p>';
+  return API.settings().then(function(s){
+    RT.settings=s;
+    var start=new Date(API.siteNow().date+'T12:00:00');RT.days=[];
+    for(var k=0;k<=Math.min(s.days_ahead||14,30);k++){var d=new Date(start);d.setDate(d.getDate()+k);RT.days.push(d)}
+    return API.takenSlots(API.isoDate(RT.days[0]),API.isoDate(RT.days[RT.days.length-1]));
+  }).then(function(t){RT.taken=t;rtRenderDates()}).catch(function(){
+    if(strip)strip.innerHTML='<p class="font-label-md text-label-md text-error py-6 w-full text-center">تعذر تحميل المواعيد. تأكد من الإنترنت وحدّث الصفحة.</p>';
+  });
+}
 function rtRenderDates(){
   var strip=document.getElementById('datePickerStrip');if(!strip)return;
-  strip.innerHTML='';
-  var today=new Date();today.setHours(0,0,0,0);var first=null;
-  for(var k=0;k<14;k++){
-    var d=new Date(today);d.setDate(d.getDate()+k);
-    var iso=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-    var open=rtDay(iso).filter(function(s){return s.st==='open'}).length;
+  strip.innerHTML='';var first=null,keep=null;
+  RT.days.forEach(function(d){
+    var iso=API.isoDate(d),open=rtOpen(iso).length;
     var dn=RT_DAYS[d.getDay()];
     var num=d.toLocaleDateString('ar-EG',{day:'numeric'});
     var label=dn+'، '+d.toLocaleDateString('ar-EG',{day:'numeric',month:'long'})+' / '+rtHijri(d);
     var b=document.createElement('button');
     if(open>0){
       b.className='date-chip shrink-0 snap-start flex flex-col items-center justify-center w-16 py-3 px-1 rounded-xl bg-surface-container-lowest text-on-surface shadow-sm hover:bg-surface-container transition-all';
-      b.setAttribute('onclick',"window._selISO='"+iso+"';selectDate(this,'"+label+"');rtRenderSlots('"+iso+"')");
+      b.onclick=function(){window._selISO=iso;selectDate(b,label);rtRenderSlots(iso)};
       b.innerHTML='<span class="font-label-sm text-label-sm text-on-surface-variant">'+dn+'</span><span class="font-headline-md text-headline-md font-bold my-0.5">'+num+'</span><span class="font-label-sm text-label-sm text-secondary">متاح '+open+'</span>';
-      if(!first)first=b;
+      if(!first)first=b;if(iso===window._selISO)keep=b;
     }else{
       b.className='date-chip shrink-0 snap-start flex flex-col items-center justify-center w-16 py-3 px-1 rounded-xl bg-surface-container-high opacity-60 text-outline cursor-not-allowed';
       b.disabled=true;
       b.innerHTML='<span class="font-label-sm text-label-sm">'+dn+'</span><span class="font-headline-md text-headline-md font-bold my-0.5">'+num+'</span><span class="font-label-sm text-label-sm text-error">مكتمل</span>';
     }
     strip.appendChild(b);
-  }
-  if(first)first.click();
+  });
+  if(keep||first)(keep||first).click();
+  else strip.innerHTML='<p class="font-label-md text-label-md text-on-surface-variant py-6 w-full text-center">مفيش مواعيد متاحة حالياً. كلمنا على واتساب.</p>';
 }
 function rtChip(t,range){
   return '<button class="slot-chip h-12 flex items-center justify-between px-3 rounded-lg bg-surface-container-low text-on-surface font-label-md text-label-md transition-all active:scale-[0.98]" onclick="window._selTime=\''+t+'\';selectSlot(this,\''+range+'\')"><span class="font-semibold">'+rtFmt(t)+'</span><span class="material-symbols-outlined text-[18px] text-outline">schedule</span></button>';
@@ -380,49 +396,58 @@ function rtChip(t,range){
 function rtBadge(gridId,n){
   var g=document.getElementById(gridId);if(!g||!g.parentElement)return;
   var spans=g.parentElement.querySelectorAll('span');
-  for(var i=0;i<spans.length;i++){var tx=spans[i].textContent;if(tx.indexOf('متاح')===0||tx.indexOf('مقعد')>-1){spans[i].textContent=n>0?('متاح '+n):'مكتمل';break}}
+  for(var i=0;i<spans.length;i++){var tx=spans[i].textContent;if(tx.indexOf('متاح')===0||tx.indexOf('مقعد')>-1||tx==='مكتمل'){spans[i].textContent=n>0?('متاح '+n):'مكتمل';break}}
 }
 function rtRenderSlots(iso){
   var m=document.getElementById('morningSlots'),e=document.getElementById('eveningSlots');
   if(!m||!e)return;
-  var open=rtDay(iso).filter(function(s){return s.st==='open'});
-  var mo=open.filter(function(s){return parseInt(s.t.split(':')[0],10)<12});
-  var ev=open.filter(function(s){return parseInt(s.t.split(':')[0],10)>=12});
-  m.innerHTML=mo.length?mo.map(function(s){return rtChip(s.t,rtFmt(s.t)+' - '+rtEnd(s.t))}).join(''):'<p class="text-[12px] text-gray-400 col-span-2 text-center py-2">لا توجد مواعيد صباحية</p>';
-  e.innerHTML=ev.length?ev.map(function(s){return rtChip(s.t,rtFmt(s.t)+' - '+rtEnd(s.t))}).join(''):'<p class="text-[12px] text-gray-400 col-span-2 text-center py-2">لا توجد مواعيد مسائية</p>';
+  var open=rtOpen(iso);
+  var mo=open.filter(function(t){return parseInt(t.split(':')[0],10)<12});
+  var ev=open.filter(function(t){return parseInt(t.split(':')[0],10)>=12});
+  m.innerHTML=mo.length?mo.map(function(t){return rtChip(t,rtFmt(t)+' - '+rtEnd(t))}).join(''):'<p class="text-[12px] text-outline col-span-2 text-center py-2">لا توجد مواعيد صباحية</p>';
+  e.innerHTML=ev.length?ev.map(function(t){return rtChip(t,rtFmt(t)+' - '+rtEnd(t))}).join(''):'<p class="text-[12px] text-outline col-span-2 text-center py-2">لا توجد مواعيد مسائية</p>';
   rtBadge('morningSlots',mo.length);rtBadge('eveningSlots',ev.length);
   window._selTime='';
 }
-function confirmBooking(){
-  var iso=window._selISO||'',tm=window._selTime||'';
-  var nEl=document.getElementById('studentName'),pEl=document.getElementById('studentPhone');
-  var nm=nEl?nEl.value.trim():'',ph=pEl?pEl.value.trim():'';
-  var age=document.getElementById('studentAge')?document.getElementById('studentAge').value.trim():'';
-  var country=document.getElementById('studentCountry')?document.getElementById('studentCountry').value.trim():'';
-  if(!iso||!tm){alert('يرجى اختيار اليوم والوقت أولا');return}
-  if(nm.length<2){alert('يرجى إدخال الاسم');if(nEl)nEl.focus();return}
-  if(ph.replace(/\D/g,'').length<8){alert('يرجى إدخال رقم واتساب صحيح');if(pEl)pEl.focus();return}
-  var st=rtStore(),found=null;
-  (st[iso]||[]).forEach(function(s){if(s.t===tm&&s.st==='open')found=s});
-  if(!found){alert('هذا الموعد تم حجزه. يرجى اختيار موعد آخر');rtRenderSlots(iso);return}
-  found.st='booked';rtSave(st);
-  try{
-    var arr=JSON.parse(localStorage.getItem('itqan_books_v1')||'[]');
-    arr.push({name:nm,phone:ph,age:age,country:country,prog:(typeof selectedProgramName!=='undefined'?selectedProgramName:''),date:iso,time:tm,at:new Date().toISOString()});
-    localStorage.setItem('itqan_books_v1',JSON.stringify(arr));
-  }catch(e){}
-  var wa='201287654219';
-  try{var w=(localStorage.getItem('itqan_wa')||'').replace(/\D/g,'');if(w.length>=8)wa=w}catch(e){}
-  var msg='السلام عليكم فضيلة الشيخ، أود تأكيد حجز الجلسة:\n• الاسم: '+nm+'\n• الهاتف: '+ph+'\n• السن: '+(age||'-')+'\n• البلد: '+(country||'-')+'\n• المسار: '+((typeof selectedProgramName!=='undefined')?selectedProgramName:'')+'\n• الموعد: '+selectedDateString+' ('+selectedTimeString+')';
-  var toast=document.getElementById('bookingToast');
-  if(toast){toast.classList.remove('opacity-0','pointer-events-none','-translate-y-2');toast.classList.add('opacity-100','translate-y-0')}
-  setTimeout(function(){
-    window.open('https://wa.me/'+wa+'?text='+encodeURIComponent(msg),'_blank');
-    if(toast)toast.classList.add('opacity-0','pointer-events-none','-translate-y-2');
-    rtRenderSlots(iso);
-  },900);
+function rtDone(b,id){
+  var msg='السلام عليكم، حجزت حصة تجريبية في مقرأة الإتقان:\n• رقم الحجز: '+id+'\n• الاسم: '+b.name+'\n• الهاتف: '+b.phone+'\n• السن: '+(b.age||'-')+'\n• البلد: '+(b.country||'-')+'\n• المسار: '+(b.program||'-')+'\n• الموعد: '+selectedDateString+' ('+selectedTimeString+')';
+  var w=document.createElement('div');
+  w.id='bookingDone';
+  w.className='fixed inset-0 z-[60] bg-primary/60 flex items-end sm:items-center justify-center p-4';
+  w.innerHTML='<div class="w-full max-w-[440px] bg-surface rounded-2xl p-6 text-center flex flex-col gap-3">'
+   +'<span class="material-symbols-outlined text-[44px] text-secondary mx-auto" style="font-variation-settings:\'FILL\' 1">task_alt</span>'
+   +'<h3 class="font-headline-md text-headline-md text-primary">تم حجز موعدك</h3>'
+   +'<p class="font-body-md text-body-md text-on-surface-variant">'+selectedDateString+'<br>'+selectedTimeString+'</p>'
+   +'<p class="font-label-md text-label-md text-on-surface-variant">رقم الحجز: <b class="text-primary">'+id+'</b>. ابعتلنا رسالة على واتساب عشان نأكد معاك ونبعتلك تفاصيل الحصة.</p>'
+   +'<a target="_blank" rel="noopener" class="h-12 rounded-xl bg-secondary text-on-secondary font-title-md text-title-md flex items-center justify-center gap-2" href="'+API.waLink(API.whatsapp,msg)+'"><span class="material-symbols-outlined text-[20px]">chat</span>ابعت التأكيد على واتساب</a>'
+   +'<button type="button" class="h-11 rounded-xl text-primary font-label-md text-label-md" onclick="document.getElementById(\'bookingDone\').remove()">تمام</button></div>';
+  document.body.appendChild(w);
 }
-rtRenderDates();
+var rtBusy=false;
+function confirmBooking(){
+  if(rtBusy)return;
+  var iso=window._selISO||'',tm=window._selTime||'';
+  var v=function(id){var el=document.getElementById(id);return el?el.value.trim():''};
+  var b={date:iso,time:tm,name:v('studentName'),phone:v('studentPhone'),age:v('studentAge'),country:v('studentCountry'),program:(typeof selectedProgramName!=='undefined'?selectedProgramName:'')};
+  if(!iso||!tm){alert('اختار اليوم والوقت الأول');return}
+  if(b.name.length<2){alert('اكتب الاسم');document.getElementById('studentName').focus();return}
+  if(b.phone.replace(/\D/g,'').length<8){alert('اكتب رقم واتساب صحيح');document.getElementById('studentPhone').focus();return}
+  rtBusy=true;
+  var toast=document.getElementById('bookingToast');
+  if(toast){toast.querySelector('.font-label-md').textContent='جاري تأكيد الحجز...';toast.classList.remove('opacity-0','pointer-events-none','-translate-y-2');toast.classList.add('opacity-100','translate-y-0')}
+  API.book(b).then(function(r){
+    rtDone(b,r&&r.id);
+    (RT.taken[iso]=RT.taken[iso]||{})[tm]=true;
+  }).catch(function(err){
+    if(err.code==='SLOT_TAKEN'||err.code==='BAD_SLOT'){alert('الموعد ده اتحجز أو مبقاش متاح. اختار موعد تاني.');return rtLoad()}
+    alert('حصلت مشكلة في الاتصال. جرّب تاني، أو كلمنا على واتساب.');
+  }).then(function(){
+    rtBusy=false;
+    if(toast)toast.classList.add('opacity-0','pointer-events-none','-translate-y-2');
+    if(window._selISO)rtRenderDates();
+  });
+}
+rtLoad();
 </script>
 <style>@media (min-width:560px){body{background:#0A1430!important}main{max-width:480px!important;margin-inline:auto!important;box-shadow:0 0 80px rgba(0,0,0,.55);min-height:100vh}header>div{max-width:480px!important;margin-inline:auto!important}nav.fixed.bottom-0{left:50%!important;right:auto!important;transform:translateX(-50%);width:100%;max-width:480px}}</style>
 </body></html>
