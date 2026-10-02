@@ -7,7 +7,7 @@
 <h2 class="font-title-md text-title-md text-primary">رمز متابعة الحفظ</h2>
 </div>
 <div class="relative flex items-center">
-<input class="w-full h-12 pr-11 pl-36 bg-surface-container-low rounded-xl text-primary font-title-md text-title-md tracking-wider placeholder:text-outline/60 focus:outline-none focus:bg-surface-container" dir="ltr" id="studentCodeInput" placeholder="أدخل كود الطالب (مثال: ITQAN-7821)" type="text" value="ITQAN-7821">
+<input class="w-full h-12 pr-11 pl-36 bg-surface-container-low rounded-xl text-primary font-title-md text-title-md tracking-wider placeholder:text-outline/60 focus:outline-none focus:bg-surface-container" dir="ltr" id="studentCodeInput" placeholder="مثال: ITQ-7K3M9P" type="text">
 <span class="material-symbols-outlined absolute right-3 text-outline text-[20px]">pin</span>
 <button class="absolute left-1.5 h-9 px-3.5 bg-primary text-on-primary rounded-lg font-label-md text-label-md flex items-center gap-1 active:scale-95 transition-transform" id="searchCodeBtn">
 <span>عرض السجل</span>
@@ -15,286 +15,63 @@
 </button>
 </div>
 </section>
-<!-- Student Identity Banner -->
-<section class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
-<div class="absolute -top-10 -left-10 w-28 h-28 bg-secondary-container/30 rounded-full blur-2xl pointer-events-none"></div>
-<div class="flex items-center gap-space-md relative z-10">
-<div class="relative flex-shrink-0">
-<span class="w-16 h-16 rounded-full bg-primary-container text-tertiary-fixed flex items-center justify-center font-headline-md text-headline-md shadow-sm">ع</span>
-<span class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
-<span class="material-symbols-outlined text-[10px]" style="font-variation-settings: 'FILL' 1;">check</span>
-</span>
+<!-- Student record, filled in after a code is entered -->
+<p class="font-body-md text-body-md text-on-surface-variant text-center py-space-md" id="studentHint">اكتب الكود اللي وصلك من المقرأة عشان تشوف خطة الحفظ والتقدم والموعد الجاي.</p>
+<div class="hidden flex flex-col gap-space-md" id="studentView" aria-live="polite"></div>
 </div>
-<div class="flex flex-col min-w-0 flex-1">
-<div class="flex items-center gap-1.5">
-<h1 class="font-headline-md text-headline-md text-primary truncate">عبد الرحمن أحمد</h1>
-<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-0.5 rounded-full font-label-sm text-label-sm font-semibold flex-shrink-0">مُنتظم</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant truncate">مسار إتقان جزء عم وتبارك</p>
-<div class="flex items-center gap-2 mt-1 text-primary">
-<span class="material-symbols-outlined text-[16px] text-secondary">verified_user</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant truncate">المعلم: معلم المقرأة</span>
-</div>
-</div>
-</div>
-<!-- Quick Micro Stats -->
-<div class="grid grid-cols-3 gap-2 mt-space-md pt-space-sm bg-surface-container-low/70 rounded-lg p-2.5 text-center">
-<div class="flex flex-col items-center">
-<span class="font-headline-md text-headline-md text-primary font-bold">24</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">حصص مكتملة</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="font-headline-md text-headline-md text-secondary font-bold">18</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">سورة متقنة</span>
-</div>
-<div class="flex flex-col items-center">
-<span class="font-headline-md text-headline-md text-tertiary-container font-bold">9.5</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">معدل الإتقان</span>
-</div>
-</div>
-</section>
-<!-- Upcoming Session Reminder Card -->
-<section class="w-full bg-primary-container text-on-primary rounded-xl p-space-md shadow-md relative overflow-hidden">
-<div class="flex items-start justify-between gap-space-sm mb-space-sm">
-<div class="flex items-center gap-2">
-<span class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary">
-<span class="material-symbols-outlined text-[18px]">videocam</span>
-</span>
-<div>
-<span class="font-label-sm text-label-sm text-secondary-fixed block">الموعد المرتقب القادم</span>
-<h3 class="font-title-md text-title-md text-white font-bold">الأربعاء 04 مارس 2025</h3>
-</div>
-</div>
-<span class="bg-surface/15 text-white px-2 py-0.5 rounded font-label-sm text-label-sm tracking-wide">06:30 م</span>
-</div>
-<div class="flex items-center justify-between pt-2">
-<div class="flex items-center gap-1.5 text-surface-variant">
-<span class="material-symbols-outlined text-[16px] text-tertiary-fixed">schedule</span>
-<span class="font-label-sm text-label-sm">تبدأ بعد ساعتين و15 دقيقة</span>
-</div>
-<a class="h-9 px-4 bg-secondary text-on-secondary rounded-lg font-label-md text-label-md flex items-center gap-1.5 active:scale-95 transition-transform shadow-sm" href="https://zoom.us" target="_blank">
-<span class="material-symbols-outlined text-[18px]">login</span>
-<span>دخول القاعة</span>
-</a>
-</div>
-</section>
-<!-- Progress Ring & Mastery Overview -->
-<section class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
-<div class="flex items-center justify-between mb-space-sm">
-<h3 class="font-title-md text-title-md text-primary font-bold">مؤشر التقدم في الخطة</h3>
-<span class="font-label-sm text-label-sm text-secondary font-bold">جزء تبارك (68%)</span>
-</div>
-<div class="flex items-center gap-space-md">
-<!-- Circular Progress Ring SVG -->
-<div class="relative w-24 h-24 flex-shrink-0 flex items-center justify-center">
-<svg class="w-24 h-24 -rotate-90 transform" viewBox="0 0 100 100">
-<circle class="text-surface-container-high" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
-<circle class="text-secondary" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="80.38" stroke-linecap="round" stroke-width="8"></circle>
-</svg>
-<div class="absolute flex flex-col items-center justify-center">
-<span class="font-headline-md text-headline-md text-primary font-bold">68%</span>
-<span class="font-label-sm text-label-sm text-outline">منجز</span>
-</div>
-</div>
-<div class="flex flex-col justify-center space-y-1.5 flex-1 min-w-0">
-<div class="flex items-center justify-between text-body-md">
-<span class="font-label-sm text-label-sm text-on-surface truncate">جزء عم (مكتمل ومراجع)</span>
-<span class="font-label-sm text-label-sm text-secondary font-bold">100%</span>
-</div>
-<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
-<div class="h-full bg-secondary rounded-full" style="width: 100%;"></div>
-</div>
-<div class="flex items-center justify-between text-body-md pt-1">
-<span class="font-label-sm text-label-sm text-on-surface truncate">جزء تبارك (المرحلة الحالية)</span>
-<span class="font-label-sm text-label-sm text-primary font-bold">68%</span>
-</div>
-<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
-<div class="h-full bg-secondary rounded-full" style="width: 68%;"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Memorization Divisions: 3 Mobile-Optimized Blocks -->
-<section class="space-y-space-sm">
-<div class="flex items-center justify-between px-1">
-<h3 class="font-title-md text-title-md text-primary font-bold">تفاصيل مهام الحفظ الحالية</h3>
-<span class="font-label-sm text-label-sm text-outline">مُحدّث بعد حصة الأمس</span>
-</div>
-<!-- 1. New Memorization -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
-<div class="flex items-center justify-between mb-2">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-[18px]">auto_stories</span>
-</span>
-<span class="font-title-md text-title-md text-primary font-bold">الحفظ الجديد المطلوب</span>
-</div>
-<span class="font-label-sm text-label-sm bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full font-bold">الواجب القادم</span>
-</div>
-<p class="font-body-lg text-body-lg text-primary font-semibold mb-1">سورة الملك: من الآية 1 إلى الآية 15</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[16px] text-secondary">record_voice_over</span>
-<span>التركيز على تفخيم الراء وقلقلة القاف والطاء</span>
-</div>
-</div>
-<!-- 2. Recent Revision -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
-<div class="flex items-center justify-between mb-2">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-[18px]">replay</span>
-</span>
-<span class="font-title-md text-title-md text-primary font-bold">الماضي القريب (تثبيت)</span>
-</div>
-<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded-full font-medium">سورتان</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface mb-1">سورة القلم وسورة الحاقة كاملتين</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[16px] text-outline">history</span>
-<span>تمت المراجعة والتسميع بتقدير ممتاز يوم الإثنين</span>
-</div>
-</div>
-<!-- 3. Distant Cumulative Revision -->
-<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
-<div class="flex items-center justify-between mb-2">
-<div class="flex items-center gap-2">
-<span class="w-7 h-7 rounded-lg bg-surface-container-high text-on-surface flex items-center justify-center">
-<span class="material-symbols-outlined text-[18px]">library_books</span>
-</span>
-<span class="font-title-md text-title-md text-primary font-bold">الماضي البعيد التراكمي</span>
-</div>
-<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded-full font-medium">مستمر</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface mb-1">جزء عم كاملاً (من سورة النبأ إلى الناس)</p>
-<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
-<span>مقرر الورد اليومي: 3 سور يومياً بالترتيب العكسي</span>
-</div>
-</div>
-</section>
-<!-- Audio Recitation Feedback & Teacher Note -->
-<section class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-space-sm">
-<div class="flex items-center justify-between">
-<div class="flex items-center gap-2">
-<span class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-[18px]">mic</span>
-</span>
-<div>
-<h3 class="font-title-md text-title-md text-primary font-bold">تسجيل الملاحظة والتصحيح</h3>
-<span class="font-label-sm text-label-sm text-outline">بصوت المعلم (01:42 دقيقة)</span>
-</div>
-</div>
-<div class="flex items-center gap-1 bg-surface-container-low px-2 py-1 rounded-lg">
-<span class="material-symbols-outlined text-tertiary-container text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-md text-label-md text-primary font-bold">9.5/10</span>
-</div>
-</div>
-<!-- Audio Player Strip -->
-<div class="bg-surface-container-low rounded-xl p-3 flex items-center gap-3">
-<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform shadow-sm" id="audioPlayToggle">
-<span class="material-symbols-outlined text-[22px]" id="playIcon">play_arrow</span>
-</button>
-<!-- Simulated Dynamic Waveform Bars -->
-<div class="flex items-center gap-1 flex-1 h-8 overflow-hidden">
-<span class="w-1 h-3 bg-secondary rounded-full"></span>
-<span class="w-1 h-5 bg-secondary rounded-full"></span>
-<span class="w-1 h-7 bg-secondary rounded-full"></span>
-<span class="w-1 h-4 bg-secondary rounded-full"></span>
-<span class="w-1 h-8 bg-secondary rounded-full"></span>
-<span class="w-1 h-6 bg-secondary rounded-full"></span>
-<span class="w-1 h-3 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-5 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-7 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-4 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-6 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-2 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-5 bg-outline/40 rounded-full"></span>
-<span class="w-1 h-3 bg-outline/40 rounded-full"></span>
-</div>
-<span class="font-label-sm text-label-sm text-outline tabular-nums">00:38 / 01:42</span>
-</div>
-<!-- Written Tajweed Correction Details -->
-<div class="bg-surface-container-low/70 rounded-lg p-3 space-y-2">
-<div class="flex items-center gap-1.5 text-primary font-label-md text-label-md">
-<span class="material-symbols-outlined text-[16px] text-secondary">edit_note</span>
-<span>ملاحظات المعلم الدقيقة:</span>
-</div>
-<ul class="space-y-1.5 font-body-md text-body-md text-on-surface-variant pr-1">
-<li class="flex items-start gap-2">
-<span class="text-secondary text-[18px] leading-none mt-1">•</span>
-<span>ما شاء الله، إتقان تام لغنة النون والميم المشددتين في سورة الحاقة.</span>
-</li>
-<li class="flex items-start gap-2">
-<span class="text-secondary text-[18px] leading-none mt-1">•</span>
-<span>تنبيه بسيط: ضبط مقدار المد المنفصل ليكون بمقدار 4 حركات بالتساوي دون استعجال.</span>
-</li>
-</ul>
-</div>
-</section>
-
-</div>
+</main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,27,61,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav><script src="assets/js/config.js"></script><script src="assets/js/api.js"></script>
 <script>
-  (function() {
-    const playBtn = document.getElementById('audioPlayToggle');
-    const playIcon = document.getElementById('playIcon');
-    let isPlaying = false;
-
-    if (playBtn && playIcon) {
-      playBtn.addEventListener('click', function() {
-        isPlaying = !isPlaying;
-        if (isPlaying) {
-          playIcon.textContent = 'pause';
-          playBtn.classList.replace('bg-primary', 'bg-secondary');
-        } else {
-          playIcon.textContent = 'play_arrow';
-          playBtn.classList.replace('bg-secondary', 'bg-primary');
-        }
-      });
-    }
-
-    const searchBtn = document.getElementById('searchCodeBtn');
-    const input = document.getElementById('studentCodeInput');
-    if (searchBtn && input) {
-      searchBtn.addEventListener('click', function() {
-        searchBtn.classList.add('scale-95');
-        setTimeout(() => searchBtn.classList.remove('scale-95'), 150);
-      });
-    }
-
-    const reportBtn = document.getElementById('downloadReportBtn');
-    if (reportBtn) {
-      reportBtn.addEventListener('click', function() {
-        const originalText = reportBtn.innerHTML;
-        reportBtn.innerHTML = '<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span><span>جاري التحميل...</span>';
-        setTimeout(() => {
-          reportBtn.innerHTML = originalText;
-        }, 1200);
-      });
-    }
-  })();
-</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,27,61,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav><script>
 (function(){
-  try{
-    var K='itqan_students_v1',store={};
-    try{store=JSON.parse(localStorage.getItem(K)||'{}')}catch(e){store={}}
-    if(!store['ITQAN-7821']){store['ITQAN-7821']={name:'عبد الرحمن أحمد',prog:'مسار إتقان جزء عم وتبارك',pct:68,at:Date.now()};try{localStorage.setItem(K,JSON.stringify(store))}catch(e){}}
-  }catch(e){}
-  function toast(m,ok){
+  var API=window.ItqanAPI;
+  // Offline preview only: a sample student so the page can be tried before the database is connected.
+  if(!API.online){try{var K='itqan_students_v1',st=JSON.parse(localStorage.getItem(K)||'{}');if(!st['ITQAN-7821']||!st['ITQAN-7821'].new_task){st['ITQAN-7821']={name:'عبد الرحمن أحمد',track:'جزء عم وتبارك',progress:68,sessions_done:24,new_task:'سورة الملك من الآية 1 إلى 15',recent_review:'سورة القلم وسورة الحاقة',far_review:'جزء عم كاملاً',teacher_note:'ما شاء الله، تحسّن واضح في الغنة. ركّز على المد المنفصل 4 حركات.'};localStorage.setItem(K,JSON.stringify(st))}}catch(e){}}
+  function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function card(icon,title,body){return body?'<div class="bg-surface-container-lowest rounded-xl p-space-md"><div class="flex items-center gap-2 mb-1.5"><span class="material-symbols-outlined text-[20px] text-secondary">'+icon+'</span><span class="font-title-md text-title-md text-primary">'+title+'</span></div><p class="font-body-md text-body-md text-on-surface">'+esc(body)+'</p></div>':''}
+  function render(s){
+    var pct=Math.max(0,Math.min(100,parseInt(s.progress,10)||0));
+    var next='';
+    if(s.next_session){
+      var d=new Date(s.next_session);
+      if(!isNaN(d)&&d.getTime()>Date.now()-3600e3){
+        next='<section class="bg-primary-container text-on-primary rounded-xl p-space-md flex items-center gap-3"><span class="material-symbols-outlined text-[26px] text-secondary-fixed">event</span><div class="flex flex-col"><span class="font-label-sm text-label-sm text-secondary-fixed">الحصة الجاية</span><span class="font-title-md text-title-md text-white">'+esc(d.toLocaleDateString('ar-EG',{weekday:'long',day:'numeric',month:'long'}))+' · '+esc(d.toLocaleTimeString('ar-EG',{hour:'numeric',minute:'2-digit'}))+'</span><span class="font-label-sm text-label-sm text-surface-variant">بتوقيت جهازك. لينك الحصة بيوصلك على واتساب.</span></div></section>';
+      }
+    }
+    var v=document.getElementById('studentView');
+    v.innerHTML=
+      '<section class="bg-surface-container-lowest rounded-xl p-space-md"><div class="flex items-center gap-space-md">'
+      +'<span class="w-14 h-14 rounded-full bg-primary-container text-tertiary-fixed flex items-center justify-center font-headline-md text-headline-md shrink-0">'+esc((s.name||'?').trim().charAt(0))+'</span>'
+      +'<div class="flex flex-col min-w-0"><h1 class="font-headline-md text-headline-md text-primary truncate">'+esc(s.name)+'</h1>'
+      +(s.track?'<p class="font-body-md text-body-md text-on-surface-variant truncate">'+esc(s.track)+'</p>':'')
+      +'<span class="font-label-sm text-label-sm text-on-surface-variant">المعلم: '+esc(s.teacher||'معلم المقرأة')+'</span></div></div>'
+      +'<div class="mt-space-md"><div class="flex items-center justify-between mb-1.5"><span class="font-label-md text-label-md text-on-surface">التقدم في الخطة</span><span class="font-label-md text-label-md text-secondary">'+pct+'%</span></div>'
+      +'<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width:'+pct+'%"></div></div>'
+      +'<p class="font-label-sm text-label-sm text-on-surface-variant mt-2">حصص خلصت: '+(parseInt(s.sessions_done,10)||0)+'</p></div></section>'
+      +next
+      +card('auto_stories','الحفظ الجديد',s.new_task)
+      +card('replay','مراجعة قريبة',s.recent_review)
+      +card('library_books','مراجعة بعيدة',s.far_review)
+      +card('edit_note','ملاحظة المعلم',s.teacher_note);
+    v.classList.remove('hidden');document.getElementById('studentHint').classList.add('hidden');
+  }
+  function toast(m){
     var d=document.createElement('div');
-    d.style.cssText='position:fixed;bottom:90px;right:16px;left:16px;z-index:9999;text-align:center;padding:12px;border-radius:12px;font-weight:bold;font-size:14px;background:'+(ok?'#A9541A':'#93000a')+';color:#fff';
-    d.textContent=m;document.body.appendChild(d);setTimeout(function(){d.remove()},2200);
+    d.style.cssText='position:fixed;bottom:90px;right:16px;left:16px;z-index:9999;text-align:center;padding:12px;border-radius:12px;font-weight:bold;font-size:14px;background:#93000a;color:#fff';
+    d.textContent=m;document.body.appendChild(d);setTimeout(function(){d.remove()},2600);
   }
   var btn=document.getElementById('searchCodeBtn'),inp=document.getElementById('studentCodeInput');
-  if(btn&&inp){
-    var q=new URLSearchParams(location.search).get('code');
-    if(q){inp.value=q;setTimeout(function(){btn.click()},300)}
-    btn.addEventListener('click',function(){
-      var c=inp.value.trim().toUpperCase();
-      var s={};try{s=JSON.parse(localStorage.getItem('itqan_students_v1')||'{}')}catch(e){}
-      if(s[c]){toast('تم العثور على سجل الطالب: '+s[c].name,true)}
-      else{toast('الكود غير صحيح. يرجى مراجعة الشيخ',false)}
-    });
+  if(!btn||!inp)return;
+  function go(){
+    var c=inp.value.trim().toUpperCase();if(!c){inp.focus();return}
+    btn.disabled=true;
+    API.studentByCode(c).then(function(s){
+      if(s){render(s);try{history.replaceState(null,'','?code='+encodeURIComponent(c))}catch(e){}}
+      else{document.getElementById('studentView').classList.add('hidden');document.getElementById('studentHint').classList.remove('hidden');toast('الكود ده مش موجود. راجع الكود اللي وصلك على واتساب.')}
+    }).catch(function(){toast('حصلت مشكلة في الاتصال. جرّب تاني.')}).then(function(){btn.disabled=false});
   }
+  btn.addEventListener('click',go);
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')go()});
+  var q=new URLSearchParams(location.search).get('code');
+  if(q){inp.value=q.toUpperCase();go()}
 })();
 </script>
 <style>@media (min-width:560px){body{background:#0A1430!important}main{max-width:480px!important;margin-inline:auto!important;box-shadow:0 0 80px rgba(0,0,0,.55);min-height:100vh}header>div{max-width:480px!important;margin-inline:auto!important}nav.fixed.bottom-0{left:50%!important;right:auto!important;transform:translateX(-50%);width:100%;max-width:480px}}</style>

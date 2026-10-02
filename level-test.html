@@ -179,7 +179,7 @@
 <section class="quiz-step hidden flex flex-col gap-space-md" id="quiz-step-4">
 <div class="flex flex-col">
 <h2 class="font-headline-md text-headline-md text-primary">عينة التلاوة التشخيصية</h2>
-<p class="font-body-md text-body-md text-on-surface-variant">سجّل تلاوتك لسورة الفاتحة (دقيقة واحدة كحد أقصى) ليستمع إليها الشيخ المجاز بدقة.</p>
+<p class="font-body-md text-body-md text-on-surface-variant">سجّل تلاوتك لسورة الفاتحة (دقيقة واحدة كحد أقصى) ليسمعها المعلم ويحدد مستواك.</p>
 </div>
 <!-- Islamic Callout Card -->
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col items-center text-center gap-space-xs">
@@ -243,12 +243,18 @@
 <p class="font-body-md text-body-md text-on-surface-variant">خدمة مخصصة للمغتربين حول العالم مع مراعاة فروق التوقيت بالكامل.</p>
 </div>
 <div class="flex flex-col gap-space-sm">
+<div class="bg-surface-container-lowest p-space-md rounded-xl flex flex-col gap-space-sm">
+<label class="font-label-md text-label-md text-primary font-bold" for="lt-name">اسم الطالب</label>
+<input class="w-full h-12 px-space-md bg-surface-container-low rounded-xl text-primary font-body-md text-body-md focus:outline-none" id="lt-name" placeholder="مثال: أحمد محمد" type="text" autocomplete="name">
+<label class="font-label-md text-label-md text-primary font-bold" for="lt-phone">رقم واتساب</label>
+<input class="w-full h-12 px-space-md bg-surface-container-low rounded-xl text-primary font-body-md text-body-md text-right focus:outline-none" dir="ltr" id="lt-phone" placeholder="01XXXXXXXXX" type="tel" autocomplete="tel">
+</div>
 <div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col gap-space-sm">
 <label class="font-label-md text-label-md text-primary font-bold flex items-center gap-1.5">
 <span class="material-symbols-outlined text-secondary text-[20px]">public</span>
 <span>نطاق التوقيت المحلي الخاص بك</span>
 </label>
-<select class="w-full h-12 px-space-md bg-surface-container-low rounded-xl text-primary font-body-md text-body-md focus:outline-none">
+<select id="lt-timezone" class="w-full h-12 px-space-md bg-surface-container-low rounded-xl text-primary font-body-md text-body-md focus:outline-none">
 <option selected="">توقيت مكة المكرمة (+3 GMT)</option>
 <option>توقيت لندن / غرينتش (GMT+0 / BST)</option>
 <option>توقيت أوروبا الوسطى - برلين / باريس (CET +1)</option>
@@ -284,7 +290,7 @@
 </div>
 <div class="flex flex-col min-w-0">
 <span class="font-label-md text-label-md text-primary font-bold">تأكيد الموعد الفوري</span>
-<span class="font-label-sm text-label-sm text-on-surface-variant">سنرسل لك رابط غرفة الزووم المباشرة عبر واتساب فوراً</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">هنكلمك على واتساب ونحدد معاك ميعاد الحصة المجانية</span>
 </div>
 </div>
 </div>
@@ -307,10 +313,10 @@
 <span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">task_alt</span>
 </div>
 <div class="flex flex-col gap-1">
-<h3 class="font-headline-md text-headline-md text-primary font-bold">تم تجهيز ملف التشخيص بنجاح</h3>
-<p class="font-body-md text-body-md text-on-surface-variant">انقر بالأسفل للتواصل عبر واتساب وتثبيت موعد جلستك التشخيصية المجانية الأولى.</p>
+<h3 class="font-headline-md text-headline-md text-primary font-bold">وصلنا اختبارك</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">المعلم هيسمع التلاوة ويكلمك على واتساب. لو حابب تسرّع، ابعتلنا رسالة.</p>
 </div>
-<a class="w-full h-12 rounded-xl bg-secondary text-on-secondary font-title-md text-title-md font-bold flex items-center justify-center gap-2 shadow-md" href="https://wa.me/201287654219" rel="noopener" target="_blank">
+<a class="w-full h-12 rounded-xl bg-secondary text-on-secondary font-title-md text-title-md font-bold flex items-center justify-center gap-2 shadow-md" href="https://wa.me/201287654219" id="lt-wa" rel="noopener" target="_blank">
 <span class="material-symbols-outlined text-[20px]">chat</span>
 <span>متابعة الحجز المجاني عبر واتساب</span>
 </a>
@@ -333,7 +339,7 @@
     "التالي: أحكام التجويد",
     "التالي: تسجيل التلاوة",
     "التالي: اختيار التوقيت",
-    "اعتماد وحجز الجلسة المجانية"
+    "إرسال الاختبار"
   ];
 
   function selectOption(button, step) {
@@ -513,18 +519,51 @@
       playIcon.textContent = 'play_arrow';
     }
   }
-</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,27,61,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav><script>
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_20px_rgba(15,27,61,0.05)]" data-active-classes="text-secondary font-bold"><div class="flex justify-around items-center h-16 px-space-xs"><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="al-raisiya" href="index.html"><span class="material-symbols-outlined text-[22px] mb-0.5">mosque</span><span class="font-label-sm text-label-sm">الرئيسية</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="hajz-maw-id" href="booking.html"><span class="material-symbols-outlined text-[22px] mb-0.5">calendar_month</span><span class="font-label-sm text-label-sm">حجز موعد</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="ikhtibar-al-mustawa" href="level-test.html"><span class="material-symbols-outlined text-[22px] mb-0.5">quiz</span><span class="font-label-sm text-label-sm">المستوى</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="baqat-al-as-ar" href="payment.html"><span class="material-symbols-outlined text-[22px] mb-0.5">verified</span><span class="font-label-sm text-label-sm">الباقات</span></a><a class="flex flex-col items-center justify-center w-14 h-14 text-on-surface-variant transition-colors group" data-path="mutaba-a-bikud" href="student.html"><span class="material-symbols-outlined text-[22px] mb-0.5">pin</span><span class="font-label-sm text-label-sm">متابعة بكود</span></a></div></nav><script src="assets/js/config.js"></script><script src="assets/js/api.js"></script>
+<script>
+/* Real microphone recording and saving the answers to the database. */
 (function(){
-  function save(){try{localStorage.setItem('itqan_level',JSON.stringify({finished:true,at:Date.now()}))}catch(e){}}
-  if(typeof navigateStep==='function'){
-    var orig=navigateStep;
-    navigateStep=function(d){
-      try{
-        if(d===1&&typeof currentStep!=='undefined'&&typeof totalSteps!=='undefined'&&currentStep===totalSteps){save()}
-      }catch(e){}
-      return orig(d);
-    };
-  }
+  var API=window.ItqanAPI,rec=null,chunks=[],blob=null,stream=null,player=null;
+  var origToggle=toggleRecording,origReset=resetRecording,origNav=navigateStep;
+  function stopStream(){if(stream){stream.getTracks().forEach(function(t){t.stop()});stream=null}}
+  toggleRecording=function(){
+    if(isRecording){if(rec&&rec.state!=='inactive')rec.stop();stopStream();return origToggle()}
+    if(!navigator.mediaDevices||!window.MediaRecorder){alert('المتصفح ده مش بيدعم التسجيل. تقدر تكمل من غير تسجيل.');return}
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(s){
+      stream=s;chunks=[];blob=null;
+      rec=new MediaRecorder(s);
+      rec.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data)};
+      rec.onstop=function(){blob=new Blob(chunks,{type:(rec.mimeType||'audio/webm').split(';')[0]})};
+      rec.start();origToggle();
+    }).catch(function(){alert('مقدرناش نوصل للميكروفون. اسمح للموقع باستخدامه، أو كمّل من غير تسجيل.')});
+  };
+  resetRecording=function(){if(rec&&rec.state!=='inactive')rec.stop();stopStream();blob=null;chunks=[];if(player){player.pause();player=null}return origReset()};
+  previewRecording=function(){
+    var ic=document.getElementById('play-preview-icon');
+    if(!blob)return;
+    if(player&&!player.paused){player.pause();ic.textContent='play_arrow';return}
+    player=new Audio(URL.createObjectURL(blob));player.onended=function(){ic.textContent='play_arrow'};
+    player.play();ic.textContent='pause';
+  };
+  function picked(step){var b=document.querySelector('#quiz-step-'+step+' .quiz-option-btn.bg-secondary-fixed span.font-title-md');return b?b.textContent.trim():''}
+  var busy=false;
+  navigateStep=function(d){
+    if(!(d===1&&currentStep===totalSteps))return origNav(d);
+    if(busy)return;
+    var nm=document.getElementById('lt-name').value.trim(),ph=document.getElementById('lt-phone').value.trim();
+    if(nm.length<2){alert('اكتب اسم الطالب');document.getElementById('lt-name').focus();return}
+    if(ph.replace(/\D/g,'').length<8){alert('اكتب رقم واتساب صحيح');document.getElementById('lt-phone').focus();return}
+    var per=document.querySelector('#quiz-step-5 .slot-btn.bg-secondary');
+    var t={name:nm,phone:ph,age_group:picked(1),memorized:picked(2),tajweed:picked(3),timezone:document.getElementById('lt-timezone').value,period:per?per.textContent.trim():''};
+    var nb=document.getElementById('next-btn-text'),old=nb.textContent;
+    busy=true;nb.textContent='جاري الإرسال...';
+    var audio=blob?new File([blob],'recitation.'+(blob.type.indexOf('ogg')>-1?'ogg':blob.type.indexOf('mp4')>-1?'mp4':'webm'),{type:blob.type}):null;
+    API.submitLevelTest(t,audio).then(function(){
+      var msg='السلام عليكم، خلصت اختبار المستوى في مقرأة الإتقان:\n• الاسم: '+t.name+'\n• الفئة: '+(t.age_group||'-')+'\n• الحفظ: '+(t.memorized||'-')+'\n• التجويد: '+(t.tajweed||'-')+'\n• التوقيت: '+t.timezone+'\n• الفترة المناسبة: '+(t.period||'-');
+      document.getElementById('lt-wa').href=API.waLink(API.whatsapp,msg);
+      origNav(1);
+    }).catch(function(){alert('حصلت مشكلة في الاتصال. جرّب تاني، أو كلمنا على واتساب.')}).then(function(){busy=false;nb.textContent=old});
+  };
 })();
 </script>
 <style>@media (min-width:560px){body{background:#0A1430!important}main{max-width:480px!important;margin-inline:auto!important;box-shadow:0 0 80px rgba(0,0,0,.55);min-height:100vh}header>div{max-width:480px!important;margin-inline:auto!important}nav.fixed.bottom-0{left:50%!important;right:auto!important;transform:translateX(-50%);width:100%;max-width:480px}}</style>
