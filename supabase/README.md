@@ -12,13 +12,10 @@
 2. انسخ محتوى الملف [`schema.sql`](schema.sql) كله والصقه، واضغط **Run**. المفروض يطلعلك `Success`.
 
 ## 3. اعمل حساب المدير (ليك)
-1. افتح **Authentication**، وبعدين **Users**، وبعدين **Add user** ثم **Create new user**.
-2. اكتب الإيميل وكلمة السر اللي هتدخل بيهم اللوحة، وعلّم على **Auto Confirm User**، واضغط **Create user**.
-3. ارجع لـ **SQL Editor** وشغّل السطر ده بعد ما تحط إيميلك:
-   ```sql
-   insert into public.admins (user_id) select id from auth.users where email = 'your@email.com';
-   ```
-4. (مستحسن) من **Authentication** ثم **Sign In / Providers** ثم **Email**، اقفل **Allow new users to sign up** عشان محدش يعمل حساب غيرك.
+1. افتح `admin.html` على الموقع، واكتب إيميلك وكلمة سر (8 حروف أو أكتر)، ودوس **أول مرة؟ اعمل حساب المدير**.
+2. هيوصلك إيميل تأكيد من Supabase، دوس على اللينك اللي فيه. لو فتحلك صفحة مش شغالة بعدها، دي حاجة عادية والحساب اتأكد.
+3. ارجع للوحة ودوس **دخول**. أول حساب يدخل اللوحة بيبقى هو المدير، ومحدش بعده يقدر ياخد المكان ده.
+4. (مستحسن) من **Authentication** ثم **Sign In / Providers** ثم **Email**، اقفل **Allow new users to sign up**.
 
 ## 4. اربط الموقع
 1. افتح **Project Settings** ثم **API** (أو **Data API** و **API Keys**).

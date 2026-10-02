@@ -229,6 +229,18 @@ begin
   return c;
 end $$;
 
+-- First sign-in from admin.html: the very first account becomes the admin. After that, nobody else can.
+create or replace function public.claim_admin() returns boolean
+language plpgsql security definer set search_path = public as $$
+begin
+  if auth.uid() is null then return false; end if;
+  lock table public.admins in exclusive mode;
+  if not exists (select 1 from public.admins) then
+    insert into public.admins (user_id) values (auth.uid());
+  end if;
+  return public.is_admin();
+end $$;
+
 -- Who may call what
 revoke execute on all functions in schema public from public, anon;
 grant execute on function public.public_settings() to anon, authenticated;
@@ -239,6 +251,7 @@ grant execute on function public.submit_payment(text, text, text, text, text) to
 grant execute on function public.submit_level_test(text, text, text, text, text, text, text, text) to anon, authenticated;
 grant execute on function public.is_admin() to authenticated;
 grant execute on function public.new_student_code() to authenticated;
+grant execute on function public.claim_admin() to authenticated;
 
 -- ───────────────────────── Uploads (receipts, recitations) ─────────────────────────
 

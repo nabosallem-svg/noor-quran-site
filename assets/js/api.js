@@ -206,11 +206,18 @@
   admin.signIn = function (email, password) {
     return call('POST', '/auth/v1/token?grant_type=password', { email: email, password: password })
       .then(saveSession)
-      .then(function () { return token().then(function (t) { return rpc('is_admin', {}, t); }); })
+      .then(function () { return token().then(function (t) { return rpc('claim_admin', {}, t); }); })
       .then(function (ok) {
         if (!ok) { admin.signOut(); throw Object.assign(new Error('NOT_ADMIN'), { code: 'NOT_ADMIN' }); }
         return admin.session();
       });
+  };
+  // Creates the account. Resolves 'signed_in' when Supabase skips email confirmation, else 'confirm_email'.
+  admin.signUp = function (email, password) {
+    return call('POST', '/auth/v1/signup', { email: email, password: password }).then(function (r) {
+      if (r && r.access_token) return admin.signIn(email, password).then(function () { return 'signed_in'; });
+      return 'confirm_email';
+    });
   };
   admin.signOut = function () {
     var s = lsGet(SESSION_KEY, null);

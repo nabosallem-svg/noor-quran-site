@@ -36,7 +36,9 @@
       <input id="loginEmail" class="adm-in" dir="ltr" type="email" placeholder="البريد الإلكتروني" autocomplete="username" required>
       <input id="loginPass" class="adm-in" dir="ltr" type="password" placeholder="كلمة المرور" autocomplete="current-password" required>
       <button class="h-12 rounded-xl bg-secondary text-on-secondary font-title-md text-title-md" type="submit">دخول</button>
+      <button id="signupBtn" class="h-11 rounded-xl bg-surface-container text-primary font-label-md text-label-md" type="button">أول مرة؟ اعمل حساب المدير</button>
       <p id="loginErr" class="font-label-md text-label-md text-error"></p>
+      <p id="loginInfo" class="font-label-md text-label-md text-primary"></p>
     </form>
   </section>
 
@@ -268,7 +270,18 @@ $('notifyBtn').onclick=function(){Notification.requestPermission().then(function
 $('loginForm').onsubmit=function(e){
   e.preventDefault();$('loginErr').textContent='';
   A.signIn($('loginEmail').value.trim(),$('loginPass').value).then(function(){show('app')}).catch(function(err){
-    $('loginErr').textContent=err.code==='NOT_ADMIN'?'الحساب ده مش مسجّل كمدير. شوف خطوة إضافة المدير في supabase/README.md':'البريد أو كلمة المرور غلط.';
+    $('loginErr').textContent=err.code==='NOT_ADMIN'?'فيه حساب مدير تاني متسجل قبل كده. ادخل بيه.':/confirm/i.test(err.message)?'لسه مأكدتش الإيميل. افتح رسالة التأكيد الأول.':'البريد أو كلمة المرور غلط.';
+  });
+};
+$('signupBtn').onclick=function(){
+  var em=$('loginEmail').value.trim(),pw=$('loginPass').value;$('loginErr').textContent='';$('loginInfo').textContent='';
+  if(!/^\S+@\S+\.\S+$/.test(em)){$('loginErr').textContent='اكتب إيميل صحيح الأول';return}
+  if(pw.length<8){$('loginErr').textContent='كلمة السر لازم تكون 8 حروف أو أكتر';return}
+  A.signUp(em,pw).then(function(r){
+    if(r==='signed_in')show('app');
+    else $('loginInfo').textContent='بعتنالك إيميل تأكيد. افتحه ودوس على اللينك، وبعدين ارجع هنا ودوس دخول.';
+  }).catch(function(err){
+    $('loginErr').textContent=err.code==='NOT_ADMIN'?'فيه حساب مدير متسجل قبل كده. ادخل بيه.':/registered|exists/i.test(err.message)?'الإيميل ده متسجل قبل كده. دوس دخول.':'حصلت مشكلة: '+err.message;
   });
 };
 $('logoutBtn').onclick=function(){A.signOut();show('login')};
